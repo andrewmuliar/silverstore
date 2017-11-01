@@ -1,0 +1,67 @@
+header
+{
+ display: flex;
+ justify-content: space-around;
+}
+.logo
+{
+ padding:15px;
+}
+.right_side
+{
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ align-items: center;
+ padding-top: 30px;
+}
+.right_side div
+{
+ justify-content: space-around;
+ text-transform: uppercase;
+ align-items: center;
+ font-size:24px;
+ color:black;
+}
+.menu
+{
+ display: flex;
+ justify-content: flex-end;
+ width:450px;
+ align-items: flex-end;
+
+}
+.things
+{
+ margin-top:15px;
+ display: flex;
+}
+
+.ribbon
+{
+ display: flex;
+ width: 100%;
+ height: 75px;
+ margin-top:-8px; 
+ background-color: black;
+ justify-content: space-around;
+ align-items: center;
+}
+.ribbon > .categories
+{
+ color:white;
+ text-transform: uppercase;
+ font-size: 18px;
+ font-family: 'Ubuntu'; 
+ }
+.ribbon > .search_box
+{
+ flex-basis: 500px;
+}
+.ribbon > .search_box input
+{
+ width: 100%;
+ font-size: 16px;
+ font-style: italic;
+}

@@ -1,0 +1,86 @@
+main
+{
+ display: flex;
+ justify-content: center;
+ align-items: flex-start;
+}
+main .tovary
+{
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+}
+main .tovary .header_cat
+{
+  display: flex;
+  justify-content: center;
+  margin-top:15px;
+  margin-bottom: 15px;
+  width:100%;
+  text-align: center;
+  font-size:22px;
+  font-weight:bold;
+  text-transform: uppercase;  
+}
+.properties
+{
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+ flex-basis: 25%;
+ font-size: 22px;
+}
+.properties .price_filter
+{
+ width:100%;
+ margin-top: 15px;
+ text-align: center;
+ margin-bottom: 75px;
+}
+.properties .properties_filter
+{
+ width:100%;  
+ list-style: none;
+}
+.properties .properties_filter li
+{
+  margin-top:7px;
+}
+.new_arrivals
+{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ text-transform: uppercase;
+ text-decoration: underline;
+ margin-top: 45px;
+ font-size:24px;
+ font-weight: bold;
+}
+.arrivals_list
+{
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ align-items: center;
+}
+.item_list
+{
+ text-align: center;
+ margin-top: 25px;
+ font-size:18px;
+ text-transform: uppercase;
+}
+.item_list .view
+{
+ float: left;
+ margin-left: 15px;
+}
+.item_list .add_to_cart
+{
+ float:right;
+ background-color: black;
+ padding:5px;
+ color:white;
+ border-radius: 3px;
+}

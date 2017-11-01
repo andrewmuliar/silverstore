@@ -1,0 +1,24 @@
+<input type="button" value="Show me Goods, please" (click) = "ShowGoods()"/>
+<input type="button" value="Show me Categories, please" (click) = "ShowCateg()"/>
+<input type="button" value="Delete good (5)" (click) = "deletGood(5)"/>
+<ul>
+ <li *ngFor="let good of goodsList">
+     {{good.france}}
+ </li>
+</ul>
+
+<ul>
+ <li *ngFor="let categ of categList">
+     {{categ.russ}}
+ </li>
+</ul>
+
+<div *ngIf="statusGood">
+ <p *ngIf="statusGood.status == 0">Error</p>
+ <p *ngIf="statusGood.status == 1">Succes Deleted</p>
+</div>
+
+<form>
+ <input type = "file" id = "selectFile" name = "selectFile" />
+ <input type = "button" (click) = "uploadImage()" value = "Upload file" />
+</form>

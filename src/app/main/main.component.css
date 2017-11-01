@@ -1,0 +1,53 @@
+main
+{
+ display: flex;
+ flex-direction: column;
+}
+.row
+{
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;  
+ margin-top: 5px;
+ align-items: flex-end;
+}
+.row div
+{
+ padding:0 5px;
+}
+.new_arrivals
+{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ text-transform: uppercase;
+ text-decoration: underline;
+ margin-top: 45px;
+ font-size:24px;
+ font-weight: bold;
+}
+.arrivals_list
+{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.item_list
+{
+ text-align: center;
+ font-size:18px;
+ text-transform: uppercase;
+}
+.item_list .view
+{
+ float: left;
+ margin-left: 15px;
+}
+.item_list .add_to_cart
+{
+ float:right;
+ background-color: black;
+ padding:5px;
+ color:white;
+ border-radius: 3px;
+}

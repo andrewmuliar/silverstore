@@ -1,0 +1,47 @@
+.contact_us
+{
+ display: flex;
+ justify-content: center;
+ font-size: 18px;
+ margin-top:45px;
+ background-color: #e14521;
+ text-transform: uppercase;
+}
+
+.contact_us p span
+{
+ font-size: 22px;
+ color:white;
+}
+
+.secured
+{
+ display: flex;
+ justify-content: center;
+ background-color: black;
+ padding:15px;
+}
+.secured img
+{
+ margin-left: 15px;
+}
+.join_us
+{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ border-top: 1px solid #e14521;
+ align-items: center;
+ background-color: black;
+}
+.join_us p
+{
+ color: white;
+ font-size: 18px;
+}
+.join_us input
+{
+ width:385px;
+ border-radius: 2px;
+ font-size:18px;
+}

@@ -1,0 +1,108 @@
+<header>
+ LightRider
+</header>
+<aside>
+ <ul class = "adminMenu">
+  <li>Категории</li>    
+  <li><a routerLink = "/show">Товары</a></li>
+  <li>Заказы</li>  
+  <li>Розсылки</li>
+  <li>Чат</li>
+ </ul>
+</aside>
+<main>
+  <div class = "listOF">
+    <ul style = "list-style:none;">
+      <li>
+       <input type="button" value="Add new good" (click) = "AddNewGood()" 
+              style="width:100%; font-size:16px; height:45px;"/>
+      </li>
+     <li *ngFor = "let good of goodList" (click) = "selectGood(good)">{{good.english+' '+good.id}}</li>
+    </ul>
+  </div>
+<form [formGroup] = "form" (ngSubmit) = "UpdateGood()">          
+  <div class = "goodsEdit">
+   <ul>
+    <li (click) = "setLangProp('eng')">English</li>
+    <li (click) = "setLangProp('fra')">France</li>
+    <li (click) = "setLangProp('ger')">Germany</li>
+    <li><input type="button" value="DELETE" style="width:auto; display:inline-block; background:red;"/></li>    
+   </ul>
+   <div class = "tabEdit" id="engTab"  *ngIf="langProp == 'eng'">
+    <input type = "text"
+           formControlName = "english"
+           class = "nameInput"
+           name = "english"
+           />
+    <textarea 
+              rows="10" 
+              name = "desc_eng"
+              formControlName = "desc_eng"              
+              style = "min-width:450px;" 
+              class = "nameInput">
+      {{selectedGood.desc_english}}
+    </textarea>
+   </div>
+   <div class = "tabEdit" id="fraTab"  *ngIf="langProp == 'fra'">
+      <input 
+            type = "text" 
+            formControlName = "france"   
+            name = "france"            
+            class = "nameInput"
+            />
+      <textarea 
+                name = "desc_fra"
+                formControlName = "desc_fra"                                          
+                rows="10" 
+                style = "min-width:450px;" 
+                class = "nameInput">
+        {{selectedGood.desc_france}}        
+      </textarea>
+   </div>
+  <div class = "tabEdit" id="gerTab"   *ngIf="langProp == 'ger'">
+    <input 
+          type = "text" 
+          name = "germany"
+          formControlName = "germany"                        
+          class = "nameInput" />
+    <textarea 
+              name = "desc_ger"
+              formControlName = "desc_ger"                                      
+              rows="10" 
+              style = "min-width:450px;" 
+              class = "nameInput">
+     {{selectedGood.desc_germany}}
+    </textarea>
+   </div>        
+  <div id = "parameters">
+   <input type="text" name = "weight" formControlName = "weight" placeholder="Weight"/>
+   <select formControlName = "category" name = "category">
+    <option *ngFor = "let cater of catForGoods"
+           [selected] = "cater.id == selectedGood.category"
+           [value]    = "cater.id">
+      {{cater.english}}
+    </option>
+   </select>
+   <ul>
+     <li>
+       <button (click) = "addSize()">Add size and prize</button>
+    </li>
+     <li *ngFor = "let size of goodSizes;  let i = index">
+       <input type = "input" class="param"
+        [name] = "'size_field'+i"
+        [value] = 'i'
+        [formControlName] = "'size_field'+i"
+       />
+       <input type = "input" class="param"
+       [name] = "'prize_field'+i"
+       [formControlName] = "'prize_field'+i"
+      />       
+       <button (click) = "removeSize(size)" >Delete</button>
+     </li>
+   </ul>
+  </div>
+  <button (click) = "InsertGood()">Insert</button>
+  <button type = "submit">Sumbit</button>  
+</div>
+</form>
+</main>
