@@ -2,6 +2,8 @@ main
 {
  display: flex;
  flex-direction: column;
+ transition:0.5s;
+ animation:fader 1s;
 }
 .row
 {
@@ -14,6 +16,13 @@ main
 .row div
 {
  padding:0 5px;
+ transition: all 0.5s;
+}
+.row div:hover
+{
+ box-shadow:2px 8px 25px black;
+ transform: scale(.99);
+ cursor: pointer; 
 }
 .new_arrivals
 {
@@ -37,6 +46,13 @@ main
  text-align: center;
  font-size:18px;
  text-transform: uppercase;
+ transition: all 0.5s;
+}
+.item_list:hover
+{
+ box-shadow:2px 8px 25px black;
+ transform: scale(1.05);
+ cursor: pointer; 
 }
 .item_list .view
 {
@@ -51,3 +67,11 @@ main
  color:white;
  border-radius: 3px;
 }
+@keyframes fader {
+    0% {
+      opacity:0.5;
+    }
+    100% {
+      opacity:1;
+    }
+  }

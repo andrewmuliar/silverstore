@@ -5,65 +5,31 @@
  top:50px;
  height: 99%;
  width:200px;
- background-color: grey;
+ background-color: #ffffff;
  list-style: none;
  padding:0;
 }
 .adminMenu li
 {
  font-size:22px;
- color:#222;
  margin-top:50px;
  margin-left:50px;
+ padding:15px;
  font-family: 'Open Sans';
+ text-align: center;
 }
-main
+.adminMenu li:hover
 {
- position: absolute;
- left: 200px;
- top:50px;
- width:85%;
- background: yellow;
+ background-color: #000000;
 }
-.listOF
+.adminMenu li:hover a
 {
- float:left;
- width:400px;
- height:auto;
- background: red;
-}
-.listOF ul li
-{
- margin-top:25px;
- font-size:18px;
- font-family: 'Open Sans';
-}
-.goodsEdit
-{
- float:left;
- width:500px;
- background:lime;
- padding:25px;
-}
-.goodsEdit li
-{
- display: inline-block;
- font-size:18px;
- font-family: 'Open Sans';
- margin-right: 45px;
+ color:white;
  cursor: pointer;
 }
-.nameInput
+.adminMenu li a
 {
- display: block;
- margin:50px 0;
- font-family: 'Open Sans';
- font-size: 18px;
+ text-decoration: none;
+ color:black;
 }
-.param
-{
- display: inline;
- font-size:16px;
- font-family: 'Open Sans';
- margin-top:15px;
-}
+

@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
-
 //Admin component
 import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
@@ -20,6 +19,10 @@ import { ViewMoreComponent } from './view-more/view-more.component';
 import { FooterComponent } from './footer/footer.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { AboutComponent } from './about/about.component';
+import { GoodsAdminComponent } from './goodsAdmin/goodsAdmin.component';
+import { CategoryAdminComponent } from './categoryAdmin/categoryAdmin.component';
+import { EmailspamComponent } from './emailspam/emailspam.component';
+import { ZakazComponent } from './zakaz/zakaz.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,11 @@ import { AboutComponent } from './about/about.component';
     ViewMoreComponent,
     FooterComponent,
     CategoriesComponent,
-    AboutComponent
+    AboutComponent,
+    GoodsAdminComponent,
+    CategoryAdminComponent,
+    EmailspamComponent,
+    ZakazComponent
 ],
   imports: [
     BrowserModule,
@@ -56,6 +63,30 @@ import { AboutComponent } from './about/about.component';
       {
        path: 'categories',
        component: CategoriesComponent
+      },
+      {
+        path: 'pay',
+        component: PaypalComponent
+      },
+      {
+       path: 'admin/goodsAdmin',
+       component: GoodsAdminComponent
+      },
+      {
+       path: 'admin/categAdmin',
+       component: CategoryAdminComponent
+      },
+      {
+       path: 'admin/emailspam',
+       component: EmailspamComponent 
+      },
+      {
+       path: 'admin/zakazAdmin',
+       component: ZakazComponent
+      },
+      {
+       path: '',
+       component: MainComponent
       }
     ])    
  ],

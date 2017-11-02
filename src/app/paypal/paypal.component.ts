@@ -19,7 +19,7 @@ export class PaypalComponent implements OnInit {
                   // PayPal Client IDs - replace with your own
                   // Create a PayPal app: https://developer.paypal.com/developer/applications/create
                   client: {
-                      sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+                      sandbox:'Ab7GeddW8UczlTdTcQQs40bivwnkIJc2LzsztPm9ts5rXaxh_um1OFcduDNBsz0WKSsrxkfoU8rlggf4',
                       production: '<insert production client id>'
                   },
       
@@ -34,7 +34,7 @@ export class PaypalComponent implements OnInit {
                           payment: {
                               transactions: [
                                   {
-                                      amount: { total: '55.00', currency: 'USD' }
+                                      amount: { total: '1.00', currency: 'USD' }
                                   }
                               ]
                           }

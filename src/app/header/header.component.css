@@ -30,7 +30,15 @@ header
  justify-content: flex-end;
  width:450px;
  align-items: flex-end;
-
+}
+.menu div a
+{
+ text-decoration: none;
+ color:black;
+}
+.menu div a:hover
+{
+ text-decoration: underline;
 }
 .things
 {

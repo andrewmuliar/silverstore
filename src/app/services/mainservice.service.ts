@@ -5,7 +5,7 @@ import {Http, Response, Headers, RequestOptions} from '@angular/http';
 @Injectable()
 export class MainService {
 
-private url = 'http://localhost/silver'
+private url = 'http://www.shkola22.com.ua/test'
 
 constructor(private _http:Http) { }
 
@@ -52,6 +52,15 @@ createGood(data)
  return this._http.post(fullUrl, data, {headers:headers})
 }
 
+createCategory(data)
+{
+ let fullUrl = this.url+'/creator_category.php'
+ console.log(data)
+ let headers = new Headers();
+ headers.append('Content-Type', 'application/json; charset=UTF-8'); 
+ return this._http.post(fullUrl, data, {headers:headers}) 
+}
+
 //UPDATERS
 
 updateGood(data)
@@ -62,5 +71,15 @@ updateGood(data)
  headers.append('Content-Type', 'application/json; charset=UTF-8'); 
  return this._http.post(fullUrl, data, {headers:headers}) 
 }
+
+//Send email to costumers
+ sendEmail(email)
+ {
+  let fullUrl = this.url+'/email.php'
+  console.log(email)
+  let headers = new Headers();
+  headers.append('Content-Type', 'application/json; charset=UTF-8'); 
+  return this._http.post(fullUrl, email, {headers:headers})   
+ }
 
 }

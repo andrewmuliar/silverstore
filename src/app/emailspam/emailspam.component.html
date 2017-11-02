@@ -1,0 +1,15 @@
+<div>
+<form [formGroup] = "form" (ngSubmit) = "sendEmail()">     
+ <input type = "text" 
+        placeholder = "Subject..."  
+        name = "subject"
+        formControlName = "subject"
+        />     
+ <textarea 
+      placeholder="Write text for customer..."
+      name = "text_for_email"
+      formControlName = "text_for_email">
+ </textarea>
+ <button>Send to e-mails</button>
+</form>
+</div>

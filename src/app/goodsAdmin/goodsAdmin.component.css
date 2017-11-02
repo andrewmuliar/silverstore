@@ -1,0 +1,49 @@
+main
+{
+ position: absolute;
+ left: 200px;
+ top:50px;
+ width:85%;
+ background: yellow;
+}
+.listOF
+{
+ float:left;
+ width:400px;
+ height:auto;
+ background: red;
+}
+.listOF ul li
+{
+ margin-top:25px;
+ font-size:18px;
+ font-family: 'Open Sans';
+}
+.goodsEdit
+{
+ float:left;
+ width:500px;
+ background:lime;
+ padding:25px;
+}
+.goodsEdit li
+{
+ display: inline-block;
+ font-size:18px;
+ font-family: 'Open Sans';
+ margin-right: 45px;
+ cursor: pointer;
+}
+.nameInput
+{
+ display: block;
+ margin:50px 0;
+ font-family: 'Open Sans';
+ font-size: 18px;
+}
+.param
+{
+ display: inline;
+ font-size:16px;
+ font-family: 'Open Sans';
+}

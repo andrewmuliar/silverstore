@@ -16,6 +16,8 @@ export class ShowtimeComponent implements OnInit {
   categList:any;
   statusGood:any; 
   statusCategory:any; 
+  url:Array<any> = [];
+  images:any;  
 
   constructor(private service:MainService, 
               private elem:ElementRef, private fileUploader:UploadService) { }
@@ -52,13 +54,30 @@ export class ShowtimeComponent implements OnInit {
   )  
  }
 
+//  readUrl(event) {
+//    for (let j = 0; j <= event.target.files.length; j++)
+//   {
+//     var file = event.target.files[j]
+//     var reader = new FileReader();
+//     reader.onload = (event:any) => {
+//       this.url.push(event.target.result);
+//       console.log(this.url)
+//     }
+//     reader.readAsDataURL(file);
+//   }
+// }
+
  uploadImage()
  {
    let files = this.elem.nativeElement.querySelector("#selectFile").files;
    let formData = new FormData()
-   let file = files[0]
-   formData.append('selectFile', file, file.name);
-   this.fileUploader.uploadImage(formData)
+   console.log(files)
+  let file = files[0]
+   for( let i = 0; i<files.length; i++)
+   {
+    formData.append('selectFile', files[i], files[i].name);
+    this.fileUploader.uploadImage(i, formData)
         .subscribe(res => console.log(res))
+   }
  }
 }

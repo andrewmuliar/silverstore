@@ -1,0 +1,45 @@
+<main>
+  <div class = "listOF">
+    <ul style = "list-style:none;">
+      <li>
+       <input type="button" value="Add new category" (click) = "AddNewCategory()" 
+              style="width:100%; font-size:16px; height:45px;"/>
+      </li>
+     <li *ngFor = "let categ of categoryList" (click) = "selectCategory(categ)">
+       {{categ.english+' '+categ.id}}</li>
+    </ul>
+  </div>
+<form [formGroup] = "form" (ngSubmit) = "InsertCategory()">          
+  <div class = "goodsEdit">
+   <ul>
+    <li (click) = "setLangProp('eng')">English</li>
+    <li (click) = "setLangProp('fra')">France</li>
+    <li (click) = "setLangProp('ger')">Germany</li>
+    <li><input type="button" value="DELETE" style="width:auto; display:inline-block; background:red;"/></li>    
+   </ul>
+   <div class = "tabEdit" id="engTab"  *ngIf="langProp == 'eng'">
+    <input type = "text"
+           formControlName = "english"
+           class = "nameInput"
+           name = "english"
+           />
+   </div>
+   <div class = "tabEdit" id="fraTab"  *ngIf="langProp == 'fra'">
+      <input 
+            type = "text" 
+            formControlName = "france"   
+            name = "france"            
+            class = "nameInput"
+            />
+   </div>
+  <div class = "tabEdit" id="gerTab"   *ngIf="langProp == 'ger'">
+    <input 
+          type = "text" 
+          name = "germany"
+          formControlName = "germany"                        
+          class = "nameInput" />
+   </div>        
+  <button type = "submit">Sumbit</button>  
+</div>
+</form>
+</main>
