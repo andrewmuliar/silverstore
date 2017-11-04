@@ -8,27 +8,42 @@
      <li *ngFor = "let good of goodList" (click) = "selectGood(good)">{{good.english+' '+good.id}}</li>
     </ul>
   </div>
-<form [formGroup] = "form" (ngSubmit) = "UpdateGood()">          
+
+<ul>
+ <li *ngFor = "let img of url">
+  <img [src] = "img" /> 
+</li>
+</ul>
+<form>
+ <input type = "file" id = "selectFile" multiple name = "selectFile" (change) = "readUrl($event)" />          
+</form>
+<form [formGroup] = "form" (ngSubmit) = "InsertGood()">  
+ 
   <div class = "goodsEdit">
    <ul>
     <li (click) = "setLangProp('eng')">English</li>
     <li (click) = "setLangProp('fra')">France</li>
     <li (click) = "setLangProp('ger')">Germany</li>
-    <li><input type="button" value="DELETE" style="width:auto; display:inline-block; background:red;"/></li>    
+    <li *ngIf = "selectedGood.id != '' ">
+      <input type="button"
+             value="DELETE" 
+             (click) = "DeleteGood(selectedGood)"
+             style="width:auto; display:inline-block; background:red;"/></li>    
    </ul>
-   <input type = "file" id = "selectFile" name = "selectFile" />
    <div class = "tabEdit" id="engTab"  *ngIf="langProp == 'eng'">
     <input type = "text"
            formControlName = "english"
            class = "nameInput"
            name = "english"
+           placeholder = "Put good's name for English..."
            />
     <textarea 
               rows="10" 
               name = "desc_eng"
               formControlName = "desc_eng"              
               style = "min-width:450px;" 
-              class = "nameInput">
+              class = "nameInput"
+              placeholder = "Put good's description for English...">
       {{selectedGood.desc_english}}
     </textarea>
    </div>
@@ -38,13 +53,15 @@
             formControlName = "france"   
             name = "france"            
             class = "nameInput"
+            placeholder = "Put good's name for France..."            
             />
       <textarea 
                 name = "desc_fra"
                 formControlName = "desc_fra"                                          
                 rows="10" 
                 style = "min-width:450px;" 
-                class = "nameInput">
+                class = "nameInput"
+                placeholder = "Put good's description for France...">
         {{selectedGood.desc_france}}        
       </textarea>
    </div>
@@ -52,26 +69,31 @@
     <input 
           type = "text" 
           name = "germany"
-          formControlName = "germany"                        
+          formControlName = "germany"   
+          placeholder = "Put good's name for Germany..."          
           class = "nameInput" />
     <textarea 
               name = "desc_ger"
               formControlName = "desc_ger"                                      
               rows="10" 
               style = "min-width:450px;" 
-              class = "nameInput">
+              class = "nameInput"
+              placeholder = "Put good's description for Germany...">
      {{selectedGood.desc_germany}}
     </textarea>
    </div>        
   <div id = "parameters">
    <input type="text" name = "weight" formControlName = "weight" placeholder="Weight"/>
-   <select formControlName = "category" name = "category">
-    <option *ngFor = "let cater of catForGoods"
+   <label>
+     Select category for good*:
+    <select formControlName = "category" name = "category">
+     <option *ngFor = "let cater of catForGoods"
            [selected] = "cater.id == selectedGood.category"
            [value]    = "cater.id">
       {{cater.english}}
-    </option>
-   </select>
+     </option>
+    </select> 
+   </label>
    <ul>
      <li>
        <button (click) = "addSize()">Add size and prize</button>
@@ -90,7 +112,7 @@
      </li>
    </ul>
   </div>
-  <button (click) = "InsertGood()">Insert</button>
+  <button type = "submit">Insert</button>
   <!-- <button type = "submit">Sumbit</button>   -->
 </div>
 </form>

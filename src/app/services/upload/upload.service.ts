@@ -6,9 +6,9 @@ export class UploadService {
 
 constructor(private _http:Http) { }
 
-    public uploadImage(filename:any,formData:any)
+    public uploadImage(id_good,formData:any)//filename:any,
     {
-     let _url: string = "http://www.shkola22.com.ua/test/upload.php?fileName="+filename;
+     let _url: string = "http://localhost/silver/upload.php?id_good="+id_good;
      return this._http.post(_url, formData);
     }
 }

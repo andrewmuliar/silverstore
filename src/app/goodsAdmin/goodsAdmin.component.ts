@@ -21,9 +21,8 @@ export class GoodsAdminComponent implements OnInit {
     'desc_fra':new FormControl(),
     'desc_ger':new FormControl(),
     'category': new FormControl(),
-    'weight': new FormControl(),
-    'pictures': new FormControl()
-  })
+    'weight': new FormControl()
+    })
   langProp = "eng"; //default lang English  
   goodList:any;
   selectedGood = 
@@ -40,6 +39,7 @@ export class GoodsAdminComponent implements OnInit {
   }  
   goodSizes:Array<any> = [];
   catForGoods:any;
+  url :Array<any> = []
   constructor( private elem:ElementRef, 
                private service:MainService,
                private fileUploader:UploadService) { }
@@ -55,36 +55,112 @@ export class GoodsAdminComponent implements OnInit {
    this.form.addControl('size_count', new FormControl())
    this.form.patchValue({'size_count':this.goodSizes.length})   
    this.showCategories()   
-   this.goodSizes = []     
   }
   
  //Adding new Good to interface
   AddNewGood()
   {
+    this.selectedGood = 
+    {
+     "id":"",
+     "english":"",
+     "france" :"",
+     "germany":"",
+     "desc_france":"",
+     "desc_english":"",
+     "desc_germany":"",
+     "weight":"",
+     "category":""
+    } 
+  
+    this.goodSizes = []        
+    this.form.patchValue({'english':this.selectedGood.english})
+    this.form.patchValue({'france' :this.selectedGood.france})
+    this.form.patchValue({'germany':this.selectedGood.germany})
+    this.form.patchValue({'desc_eng':this.selectedGood.desc_english})
+    this.form.patchValue({'desc_fra':this.selectedGood.desc_france})
+    this.form.patchValue({'desc_ger':this.selectedGood.desc_germany})
+    this.form.patchValue({'weight':this.selectedGood.weight})   
+    this.form.patchValue({'size_count':this.goodSizes.length})
     this.showCategories()   
-    this.goodSizes = []    
   }
   
   InsertGood()
   {
-   console.log(this.form.value)
-  /* let files = this.elem.nativeElement.querySelector("#selectFile").files;
+   let files = this.elem.nativeElement.querySelector("#selectFile").files;
    let formData = new FormData()
-   let file = files[0]
-   formData.append('selectFile', file, file.name);
-   this.fileUploader.uploadImage(file.name, formData)
-        .subscribe(res => console.log(res))   */
+   for(let i = 0; i < files.length; i++)
+   {
+    formData.append('selectFile'+i, files[i], files[i]);
+   }
    this.service.createGood(this.form.value).subscribe(
-     data => console.log(data.text())
+     data => 
+     {
+      //Uploading file to server with good_id
+      this.fileUploader.uploadImage(data.text(), formData)
+      .subscribe(res => 
+      {
+        //update goods list in menu
+        this.service.getGoods(0,0)
+        .subscribe(
+         data => this.goodList = JSON.parse(data.text())
+        )
+      })   
+     }
    )
   }
-   /*UpdateGood()
-  { 
-   this.service.updateGood(this.form.value).subscribe(
-   data => console.log(data.text())
-   )
-  }*/
 
+DeleteGood(good)
+{
+ this.service.delGood(good.id).subscribe(
+   data => {   
+     if (JSON.parse(data.text()).status == '1') //return 1 if deleted
+      {
+        this.selectedGood = 
+        {
+         "id":"",
+         "english":"",
+         "france" :"",
+         "germany":"",
+         "desc_france":"",
+         "desc_english":"",
+         "desc_germany":"",
+         "weight":"",
+         "category":""
+        }     
+        this.goodSizes = []        
+        this.form.patchValue({'english':this.selectedGood.english})
+        this.form.patchValue({'france' :this.selectedGood.france})
+        this.form.patchValue({'germany':this.selectedGood.germany})
+        this.form.patchValue({'desc_eng':this.selectedGood.desc_english})
+        this.form.patchValue({'desc_fra':this.selectedGood.desc_france})
+        this.form.patchValue({'desc_ger':this.selectedGood.desc_germany})
+        this.form.patchValue({'weight':this.selectedGood.weight})   
+        this.form.patchValue({'size_count':this.goodSizes.length})
+        this.service.getGoods(0,0)
+        .subscribe(
+         data => this.goodList = JSON.parse(data.text())
+        )
+      }
+   }
+ )
+}
+
+  //ImagePreview for good on change
+  readUrl(event) {
+   for (let j = 0; j <= event.target.files.length; j++)
+   {
+     var file = event.target.files[j]
+     var reader = new FileReader();
+     reader.onload = (event:any) => {
+       this.url.push(event.target.result);
+       console.log(this.url)
+     }
+     reader.readAsDataURL(file);
+   }
+ }
+
+ //Selecting good
   selectGood(good)
   {
    for(let i = 0; i<this.goodSizes.length; i++)
@@ -94,6 +170,8 @@ export class GoodsAdminComponent implements OnInit {
    }
    this.goodSizes = []
    this.selectedGood = good
+
+//Patching data to inputs
    this.form.patchValue({'english':this.selectedGood.english})
    this.form.patchValue({'france' :this.selectedGood.france})
    this.form.patchValue({'germany':this.selectedGood.germany})
@@ -102,6 +180,7 @@ export class GoodsAdminComponent implements OnInit {
    this.form.patchValue({'desc_ger':this.selectedGood.desc_germany})
    this.form.patchValue({'weight':this.selectedGood.weight})   
    this.form.patchValue({'size_count':this.goodSizes.length})
+
    this.service.getGoodSizes(good.id)
     .subscribe(
      data =>
@@ -119,18 +198,20 @@ export class GoodsAdminComponent implements OnInit {
    this.showCategories()    
   }
 
+//Adding inputs for sizes and prize
   addSize()
   {
    this.goodSizes.push({"size":'', "prize":''})
    this.form.addControl("size_field"+String(this.goodSizes.length), new FormControl())
    this.form.addControl("prize_field"+String(this.goodSizes.length), new FormControl())   
 
-   this.form.controls['size_field'+String(this.goodSizes.length)].patchValue(this.goodSizes.length)
-   this.form.controls['prize_field'+String(this.goodSizes.length)].patchValue(this.goodSizes.length)
+   this.form.controls['size_field'+String(this.goodSizes.length)].patchValue('')
+   this.form.controls['prize_field'+String(this.goodSizes.length)].patchValue('')
    
    this.form.patchValue({'size_count':this.goodSizes.length})
   }
-  
+ 
+//Show Categories in dropdown list
   showCategories()
   {
    this.service.getCategories()
@@ -140,6 +221,8 @@ export class GoodsAdminComponent implements OnInit {
         this.form.patchValue({'category':this.selectedGood['category']})        
       })
   }
+
+//Removing inputs size and prize
   removeSize(size)
   {
    const index: number = this.goodSizes.indexOf(size);
@@ -147,8 +230,10 @@ export class GoodsAdminComponent implements OnInit {
    {
     this.goodSizes.splice(index, 1);
    }       
+   this.form.patchValue({'size_count':this.goodSizes.length})   
   }
 
+//Change language
   setLangProp(leng)
   {
    this.langProp = leng

@@ -1,3 +1,5 @@
-<p>
-  zakaz works!
-</p>
+<ul style = "margin-left:250px;">
+ <li *ngFor = "let zakaz of zakazList">
+ {{zakaz.engish+" "+zakaz.size+" "+zakaz.prize+" "+zakaz.email}} 
+</li>
+</ul>

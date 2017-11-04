@@ -23,6 +23,7 @@ import { GoodsAdminComponent } from './goodsAdmin/goodsAdmin.component';
 import { CategoryAdminComponent } from './categoryAdmin/categoryAdmin.component';
 import { EmailspamComponent } from './emailspam/emailspam.component';
 import { ZakazComponent } from './zakaz/zakaz.component';
+import { FixedButtonsComponent } from './fixedButtons/fixedButtons.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ZakazComponent } from './zakaz/zakaz.component';
     GoodsAdminComponent,
     CategoryAdminComponent,
     EmailspamComponent,
-    ZakazComponent
+    ZakazComponent,
+    FixedButtonsComponent
 ],
   imports: [
     BrowserModule,
@@ -64,6 +66,10 @@ import { ZakazComponent } from './zakaz/zakaz.component';
        path: 'categories',
        component: CategoriesComponent
       },
+      {
+        path: 'categories/:category',
+        component: CategoriesComponent
+       },      
       {
         path: 'pay',
         component: PaypalComponent

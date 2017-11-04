@@ -18,7 +18,16 @@
   </div>
  </header>
  <div class="ribbon">
-  <div class="categories">categories</div>
+    <ul class="categories">
+        <li>
+         <div>Categories<img style="margin-left: 10px;" src="../assets/images/common/arrowDown.png"></div>
+         <ul>
+          <li *ngFor = "let categ of categoryList">
+           <a [routerLink] = "'/categories/'+categ.id">{{categ.english}}</a>
+          </li>
+         </ul>
+        </li>
+      </ul>  
   <div class="search_box"><input type="text" placeholder="Search..."></div>
   <div class="shop_ticket"><img src="../assets/images/common/shop_image.png" style="height: 45px;"></div>
  </div>

@@ -54,30 +54,34 @@ export class ShowtimeComponent implements OnInit {
   )  
  }
 
-//  readUrl(event) {
-//    for (let j = 0; j <= event.target.files.length; j++)
-//   {
-//     var file = event.target.files[j]
-//     var reader = new FileReader();
-//     reader.onload = (event:any) => {
-//       this.url.push(event.target.result);
-//       console.log(this.url)
-//     }
-//     reader.readAsDataURL(file);
-//   }
-// }
+ readUrl(event) {
+   for (let j = 0; j <= event.target.files.length; j++)
+  {
+    var file = event.target.files[j]
+    var reader = new FileReader();
+    reader.onload = (event:any) => {
+      this.url.push(event.target.result);
+      console.log(this.url)
+    }
+    reader.readAsDataURL(file);
+  }
+}
 
  uploadImage()
  {
-   let files = this.elem.nativeElement.querySelector("#selectFile").files;
-   let formData = new FormData()
-   console.log(files)
-  let file = files[0]
-   for( let i = 0; i<files.length; i++)
-   {
-    formData.append('selectFile', files[i], files[i].name);
-    this.fileUploader.uploadImage(i, formData)
-        .subscribe(res => console.log(res))
-   }
+  //  let files = this.elem.nativeElement.querySelector("#selectFile").files;
+  //  let formData = new FormData()
+  //  console.log(files)
+  //  //let file = files[0]
+  //  for(let i = 0; i<= files.length; i++)
+  //   formData.append('selectFile'+i, files[i], 'nameOF'+i+'.jpg');
+  //  this.fileUploader.uploadImage(formData)
+  //      .subscribe(res => console.log(res))   
+  // //  for( let i = 0; i<files.length; i++)
+  // //  {
+  // //   formData.append('selectFile', files, files[i].name);
+  // //   this.fileUploader.uploadImage(i, formData)
+  // //       .subscribe(res => console.log(res))
+  // //  }
  }
 }

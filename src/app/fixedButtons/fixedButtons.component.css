@@ -1,0 +1,15 @@
+.buttonss
+{
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ width: 100%; 
+ top:40%;
+ position: fixed;
+ justify-content: flex-end;
+ align-items: flex-end;
+}
+.buttonss img
+{
+ margin-bottom: 15px;
+}

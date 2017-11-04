@@ -9,13 +9,17 @@
        {{categ.english+' '+categ.id}}</li>
     </ul>
   </div>
+<div *ngIf = "deleteStatus.status == 1">Category succesfull deleted</div>
 <form [formGroup] = "form" (ngSubmit) = "InsertCategory()">          
   <div class = "goodsEdit">
    <ul>
     <li (click) = "setLangProp('eng')">English</li>
     <li (click) = "setLangProp('fra')">France</li>
     <li (click) = "setLangProp('ger')">Germany</li>
-    <li><input type="button" value="DELETE" style="width:auto; display:inline-block; background:red;"/></li>    
+    <li><input type="button" 
+               value="DELETE" 
+               (click) = "DeleteCategory(selectedCategory)"
+               style="width:auto; display:inline-block; background:red;"/></li>    
    </ul>
    <div class = "tabEdit" id="engTab"  *ngIf="langProp == 'eng'">
     <input type = "text"

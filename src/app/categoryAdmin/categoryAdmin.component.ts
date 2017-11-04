@@ -20,6 +20,10 @@ export class CategoryAdminComponent implements OnInit {
   })
   langProp = "eng"; //default lang English  
   categoryList:any;
+  deleteStatus = 
+  {
+   status:0
+  }
   selectedCategory = 
   {
    "id":"",
@@ -31,10 +35,6 @@ export class CategoryAdminComponent implements OnInit {
   
   public ngOnInit(): void 
   {
-   this.service.getCategories()
-   .subscribe(
-    data => this.categoryList = JSON.parse(data.text())
-   )
    this.form.addControl("id_category", new FormControl())
    this.form.controls['id_category'].patchValue(this.selectedCategory.id)  
    this.showCategories()   
@@ -50,20 +50,32 @@ export class CategoryAdminComponent implements OnInit {
      "france" :"",
      "germany":""
     } 
+    this.form.patchValue({'id': this.selectedCategory.id})
+    this.form.patchValue({'english':this.selectedCategory.english})
+    this.form.patchValue({'france' :this.selectedCategory.france})
+    this.form.patchValue({'germany':this.selectedCategory.germany})    
   }
+
+ DeleteCategory(category)
+ {
+  this.service.delCateg(category.id).subscribe(
+    data => {
+      this.deleteStatus = JSON.parse(data.text())
+      this.form.patchValue({'id':''})
+      this.form.patchValue({'english':''})
+      this.form.patchValue({'france' :''})
+      this.form.patchValue({'germany':''})  
+      this.showCategories()  
+    }
+  )
+ }
   
   InsertCategory()
   {
    console.log(this.form.value)
    this.service.createCategory(this.form.value).subscribe(
-    data => console.log(data.text())
+    data => {alert("inserted"); this.showCategories() }
    )
-  }
-   UpdateGood()
-  { 
-  //  this.service.updateGood(this.form.value).subscribe(
-  //  data => console.log(data.text())
-  //  )
   }
 
   selectCategory(category)

@@ -5,7 +5,7 @@ import {Http, Response, Headers, RequestOptions} from '@angular/http';
 @Injectable()
 export class MainService {
 
-private url = 'http://www.shkola22.com.ua/test'
+private url = 'http://localhost/silver'
 
 constructor(private _http:Http) { }
 
@@ -28,6 +28,17 @@ getCategories()
  return this._http.get(fullUrl);
 }
 
+goodsByCategory(category)
+{
+ let fullUrl = this.url+"/functions.php?getGoodsByCategory="+category
+ return this._http.get(fullUrl)
+}
+
+getZakaz(start, counter)
+{
+ let fullUrl = this.url+"/functions.php?getZakazu="+start+"&count="+counter
+ return this._http.get(fullUrl)
+}
 //DELETERS
 delGood(goodID)
 {

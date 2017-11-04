@@ -19,6 +19,9 @@
 </div>
 
 <form>
- <input type = "file" id = "selectFile" name = "selectFile" multiple />
- <input type = "button" (click) = "uploadImage()" value = "Upload file" />
+ <input type = "file" id = "selectFile" (change) = "readUrl($event)" name = "selectFile" multiple />
+ <input type = "button"  (click) = "uploadImage()"  value = "Upload file" />
+ <li *ngFor = "let img of url">
+  <img [src] = "img" />
+ </li>
 </form>

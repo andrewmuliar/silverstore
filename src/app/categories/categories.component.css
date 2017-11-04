@@ -25,16 +25,16 @@ main .tovary .header_cat
 .properties
 {
  display: flex;
- justify-content: center;
+/*position: fixed;*/
+ justify-content: flex-start;
  flex-wrap: wrap;
- flex-basis: 25%;
+ flex-basis: 20%;
  font-size: 22px;
 }
 .properties .price_filter
 {
  width:100%;
  margin-top: 15px;
- text-align: center;
  margin-bottom: 75px;
 }
 .properties .properties_filter
@@ -68,8 +68,17 @@ main .tovary .header_cat
 {
  text-align: center;
  margin-top: 25px;
+ margin-left: 25px;
  font-size:18px;
  text-transform: uppercase;
+ transition: all 0.5s; 
+}
+
+.item_list:hover
+{
+ box-shadow:2px 8px 25px black;
+ transform: scale(1.05);
+ cursor: pointer; 
 }
 .item_list .view
 {
