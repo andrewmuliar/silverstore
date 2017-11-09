@@ -26,6 +26,8 @@
            formControlName = "english"
            class = "nameInput"
            name = "english"
+           placeholder = "Category: English"
+           
            />
    </div>
    <div class = "tabEdit" id="fraTab"  *ngIf="langProp == 'fra'">
@@ -34,13 +36,15 @@
             formControlName = "france"   
             name = "france"            
             class = "nameInput"
+            placeholder = "Ccategory: France"
             />
    </div>
   <div class = "tabEdit" id="gerTab"   *ngIf="langProp == 'ger'">
     <input 
           type = "text" 
           name = "germany"
-          formControlName = "germany"                        
+          formControlName = "germany"
+          placeholder = "Category: Germany"          
           class = "nameInput" />
    </div>        
   <button type = "submit">Sumbit</button>  

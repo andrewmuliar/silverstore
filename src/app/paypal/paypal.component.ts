@@ -1,25 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { MainService } from '../services/mainservice.service';
 
 declare let paypal: any;
 
 
 @Component({
   selector: 'paypal',
-  template: `<div id="paypal-button">Button</div>`,
+  providers: [MainService],
+  template: `<div id="paypal-button"></div>`,
   styleUrls: ['./paypal.component.css']
 })
 export class PaypalComponent implements OnInit {
 
-  constructor() { }
+  prize = Number()
+  @Input() dataToCommit:Object  
+  constructor(private service:MainService) {
+    let ar: Array<any> = []
+    this.prize = 10
+    
+   }
 
   public ngOnInit(): void {
+    console.log(this.dataToCommit)    
+    let money = this.prize;
     (window as any).paypal.Button.render({
       env: 'sandbox', // sandbox | production
       
                   // PayPal Client IDs - replace with your own
                   // Create a PayPal app: https://developer.paypal.com/developer/applications/create
                   client: {
-                      sandbox:'Ab7GeddW8UczlTdTcQQs40bivwnkIJc2LzsztPm9ts5rXaxh_um1OFcduDNBsz0WKSsrxkfoU8rlggf4',
+                     // sandbox:'Ab7GeddW8UczlTdTcQQs40bivwnkIJc2LzsztPm9ts5rXaxh_um1OFcduDNBsz0WKSsrxkfoU8rlggf4',
+                      sandbox: 'AbzpLxjS-ysou0JTQeJqhUaICk1kSwGSfDFos-GJeAVhOJwoXbthvFDGFyhPtVZDqxR4K_b8vqQedams',
                       production: '<insert production client id>'
                   },
       
@@ -34,7 +46,7 @@ export class PaypalComponent implements OnInit {
                           payment: {
                               transactions: [
                                   {
-                                      amount: { total: '1.00', currency: 'USD' }
+                                      amount: { total: money, currency: 'USD' }
                                   }
                               ]
                           }
@@ -46,7 +58,10 @@ export class PaypalComponent implements OnInit {
       
                       // Make a call to the REST api to execute the payment
                       return actions.payment.execute().then(function() {
-                          window.alert('Payment Complete!');
+                        this.service.SumbitPay(this.dataToCommit).subscribe
+                        (
+                          data => console.log(data.text())
+                        )
                       });
                   }
       

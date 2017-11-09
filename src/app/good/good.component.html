@@ -1,0 +1,30 @@
+<main>
+     <div class = "product_name">{{goodItem.desc_english}}</div>
+     <div class = "product_data">
+       <img [src] = "'uploads/'+goodItem.src" />
+       <div class="image_column">
+       <img src = "'uploads/'+goodItem.src"/>
+       <img src = "'uploads/'+goodItem.src" />
+      </div>
+     </div>
+     <div class="prize_table">
+       <!-- <span style="font-size:22px; font-weight: bold; margin-right: 75px; margin-top: 25px;">179$</span> -->
+       <img src="assets/off.png">
+       <p style="margin-left: 15px;">Weight: {{goodItem.weight}}</p>       
+       <p style="margin-left: 15px;">{{goodItem.desc_english}}</p>
+     </div>
+     <form>
+      <select #OptionPrize>
+       <option *ngFor = "let option of options" [value] = "[option.size, option.prize]">
+         Size:{{option.size}}|${{option.prize}}
+       </option>
+      </select>
+     </form>
+     <div class="delivery">
+       <img src="images/delivery.png" style="width:55px;">
+       <p style="text-decoration: underline; margin: 15px;">Delivery</p>
+       <p>New Post Office:</p>
+     </div>
+    <input type = "button" value = "Add to card" (click) = "AddToCard(goodItem, OptionPrize.value)"/>
+    <input type = "button" value = "clear local" (click) = "clearLocal()"/>
+</main>

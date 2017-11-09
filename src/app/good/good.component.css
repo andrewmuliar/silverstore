@@ -1,0 +1,42 @@
+.product_name
+{
+ display: flex;
+ justify-content:center;
+ margin-top: 25px;
+ width: 100%;
+ text-transform: uppercase;
+ font-weight: bold;
+ font-size: 22px;
+}
+
+.product_data
+{
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ margin-top: 25px;
+}
+
+.prize_table
+{
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+ width: 35%;
+}
+
+.image_column
+{
+ display: flex;
+ justify-content: center;
+ padding: 5px;
+}
+.delivery
+{
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ margin-left: 15px;
+ font-size: 18px;
+}

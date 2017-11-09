@@ -4,26 +4,36 @@ main
  left: 200px;
  top:50px;
  width:85%;
- background: yellow;
+ z-index:9999; 
+ background-color: white; 
 }
 .listOF
 {
  float:left;
  width:400px;
  height:auto;
- background: red;
 }
 .listOF ul li
 {
  margin-top:25px;
  font-size:18px;
+ padding:15px; 
+ font-family: 'Open Sans';
+}
+.listOF ul li:hover
+{
+ cursor: pointer;
+ margin-top:25px;
+ font-size:18px;
+ background-color: black;
+ color:white;
  font-family: 'Open Sans';
 }
 .goodsEdit
 {
  float:left;
  width:500px;
- background:lime;
+ background-color: white; 
  padding:25px;
 }
 .goodsEdit li

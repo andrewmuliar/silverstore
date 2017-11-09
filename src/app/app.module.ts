@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -15,7 +16,6 @@ import { UploadService } from './services/upload/upload.service';
 import { PaypalComponent } from './paypal/paypal.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
-import { ViewMoreComponent } from './view-more/view-more.component';
 import { FooterComponent } from './footer/footer.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { AboutComponent } from './about/about.component';
@@ -25,6 +25,10 @@ import { EmailspamComponent } from './emailspam/emailspam.component';
 import { ZakazComponent } from './zakaz/zakaz.component';
 import { FixedButtonsComponent } from './fixedButtons/fixedButtons.component';
 
+//import {ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
+import { ShopComponent } from './shop/shop.component';
+import { GoodComponent } from './good/good.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +37,6 @@ import { FixedButtonsComponent } from './fixedButtons/fixedButtons.component';
     PaypalComponent,
     HeaderComponent,
     MainComponent,
-    ViewMoreComponent,
     FooterComponent,
     CategoriesComponent,
     AboutComponent,
@@ -41,7 +44,9 @@ import { FixedButtonsComponent } from './fixedButtons/fixedButtons.component';
     CategoryAdminComponent,
     EmailspamComponent,
     ZakazComponent,
-    FixedButtonsComponent
+    FixedButtonsComponent,
+    ShopComponent,
+    GoodComponent
 ],
   imports: [
     BrowserModule,
@@ -91,12 +96,22 @@ import { FixedButtonsComponent } from './fixedButtons/fixedButtons.component';
        component: ZakazComponent
       },
       {
+       path: 'good/:goodID',
+       component: GoodComponent
+      },
+      {
+       path: 'shop',
+       component: ShopComponent
+      },
+      {
        path: '',
        component: MainComponent
       }
     ])    
  ],
-  providers: [MainService, UploadService],
+  providers: [MainService, UploadService
+    //, {provide: LocationStrategy, useClass: HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

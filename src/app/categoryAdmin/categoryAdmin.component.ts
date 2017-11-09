@@ -74,7 +74,7 @@ export class CategoryAdminComponent implements OnInit {
   {
    console.log(this.form.value)
    this.service.createCategory(this.form.value).subscribe(
-    data => {alert("inserted"); this.showCategories() }
+    data => {alert("inserted"); console.log(data.text()); this.showCategories() }
    )
   }
 

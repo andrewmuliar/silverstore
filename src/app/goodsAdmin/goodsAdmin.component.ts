@@ -91,7 +91,7 @@ export class GoodsAdminComponent implements OnInit {
    let formData = new FormData()
    for(let i = 0; i < files.length; i++)
    {
-    formData.append('selectFile'+i, files[i], files[i]);
+    formData.append('selectFile'+i, files[i], files[i].name);
    }
    this.service.createGood(this.form.value).subscribe(
      data => 
@@ -100,6 +100,7 @@ export class GoodsAdminComponent implements OnInit {
       this.fileUploader.uploadImage(data.text(), formData)
       .subscribe(res => 
       {
+        console.log(res.text())
         //update goods list in menu
         this.service.getGoods(0,0)
         .subscribe(

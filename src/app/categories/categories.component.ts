@@ -20,11 +20,11 @@ export class CategoriesComponent implements OnInit {
    this.router.params.subscribe(
      data => 
      {
-       console.log(data)
+//       console.log(data)
       this.service.goodsByCategory(data['category']).subscribe(
         data => {
           this.goodList = JSON.parse(data.text())
-          console.log(JSON.parse(data.text()))
+        //  console.log(JSON.parse(data.text()))
         }
       )
      }

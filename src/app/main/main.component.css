@@ -1,71 +1,56 @@
-main
-{
- display: flex;
- flex-direction: column;
- transition:0.5s;
- animation:fader 1s;
-}
 .row
 {
  display: flex;
- flex-wrap: wrap;
- justify-content: center;  
- margin-top: 5px;
- align-items: flex-end;
+ justify-content: center;
+ padding:5px;
+ transition:0.5s;
+ animation:fader 1s; 
 }
-.row div
+.row > div
 {
  padding:0 5px;
- transition: all 0.5s;
+ transition: 0.5s all; 
 }
-.row div:hover
+.row > div:hover
 {
- box-shadow:2px 8px 25px black;
- transform: scale(.99);
- cursor: pointer; 
+ transition: 0.5s all;
+ transform: scale(1.01);
+ box-shadow: 5px 5px 15px black;
 }
-.new_arrivals
+
+.headers
 {
  display: flex;
  justify-content: center;
  align-items: center;
  text-transform: uppercase;
- text-decoration: underline;
- margin-top: 45px;
  font-size:24px;
  font-weight: bold;
+ padding:25px 0;
 }
-.arrivals_list
+
+.underline
 {
- display: flex;
- justify-content: center;
- align-items: center;
+ text-decoration: underline;
 }
-.item_list
+.goodItem
 {
  text-align: center;
- font-size:18px;
- text-transform: uppercase;
- transition: all 0.5s;
-}
-.item_list:hover
-{
- box-shadow:2px 8px 25px black;
- transform: scale(1.05);
- cursor: pointer; 
-}
-.item_list .view
-{
- float: left;
- margin-left: 15px;
-}
-.item_list .add_to_cart
-{
- float:right;
- background-color: black;
+ font-size:22px;
+ font-weight: bold;
+ color:black;
+ text-decoration:none;
  padding:5px;
- color:white;
- border-radius: 3px;
+ transition: 1s all; 
+}
+.goodItem:hover
+{
+ transition: 0.5s all;
+ transform: scale(1.05);
+}
+.goodItem div
+{
+ padding:5px;
 }
 @keyframes fader {
     0% {

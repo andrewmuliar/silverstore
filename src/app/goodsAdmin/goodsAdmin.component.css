@@ -4,27 +4,34 @@ main
  left: 200px;
  top:50px;
  width:85%;
- background: yellow;
+ z-index:9999; 
+ background: white;
 }
 .listOF
 {
  float:left;
  width:400px;
  height:auto;
- background: red;
 }
 .listOF ul li
 {
  margin-top:25px;
  font-size:18px;
+ padding:15px;
  font-family: 'Open Sans';
+}
+.listOF ul li:hover
+{
+ background-color: black;
+ cursor: pointer;
+ color:white;
 }
 .goodsEdit
 {
  float:left;
  width:500px;
- background:lime;
  padding:25px;
+ border:1px solid black;
 }
 .goodsEdit li
 {

@@ -14,18 +14,21 @@
   <div class="tovary">
    <div class="header_cat">rings</div>
    <div class="arrivals_list">
-  
-     <div *ngFor = "let good of goodList" class = "item_list">
+    
+    <div *ngFor = "let good of goodList">
+     <a [routerLink] = "'/good/'+good.id">
+     <div class = "item_list">
        <img [src] = "'../assets/images/'+good.src" >
        <p>{{good.english}}</p>
-       <p>{{good.france}}</p>
+       <p>${{good.prize}}</p>
        <div>
         <div class="view">View</div>
-        <div class="add_to_cart">add to cart</div>
+        <div class="add_to_cart" (click) = "addToCard(good)">add to cart</div>
        </div>
       </div>
-
+     </a>
      </div>  
-    </div>   
+    </div>  
+   </div> 
   </main>
   

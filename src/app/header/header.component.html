@@ -1,33 +1,39 @@
-<header>
-  <div class="logo">
-  	<img src = "../assets/images/common/logo.jpg" style = "height: 75px;" />
-  </div>
-  <div class = "right_side">
-   <div class="menu">
-  	<div><a routerLink = '/index'>home</a></div>
-  	<div><a routerLink = '/categories'>shop</a></div>
-  	<div><a href = "../about/about.component.html">about</a></div>
-  	<div><img src="../assets/images/common/translate.png" style="height: 40px;"></div>  	
-  </div>
-  <div class="things">
-  	<div><img src="../assets/images/common/top_menu_thing.png"></div>
-  	<div><img src="../assets/images/common/top_menu_thing2.png"></div>
-  	<div><img src="../assets/images/common/top_menu_thing3.png"></div>
-  </div>
-  	 <!-- <li><img src="images/translate.png"></li> -->
-  </div>
- </header>
- <div class="ribbon">
-    <ul class="categories">
-        <li>
-         <div>Categories<img style="margin-left: 10px;" src="../assets/images/common/arrowDown.png"></div>
-         <ul>
-          <li *ngFor = "let categ of categoryList">
-           <a [routerLink] = "'/categories/'+categ.id">{{categ.english}}</a>
-          </li>
-         </ul>
-        </li>
-      </ul>  
-  <div class="search_box"><input type="text" placeholder="Search..."></div>
-  <div class="shop_ticket"><img src="../assets/images/common/shop_image.png" style="height: 45px;"></div>
- </div>
+ <header>  
+   <div class = "top_menu">
+    <div class="logo">
+      <a href="#"><img src = "../assets/images/common/logo.jpg" style = "height: 75px;" /></a>
+    </div>
+    <div class = "right_side">
+      <div class="menu">
+       <div><a href = "http://1145014.mt282766.web.hosting-test.net/home.html">home</a></div>
+       <div><a href = "#">shop</a></div>
+       <div><a href = "#">about</a></div>
+       <div><img src="../assets/images/common/translate.png" style="height: 40px;"></div>  	
+      </div>
+     <div class="row">
+      <div><img src="../assets/images/common/top_menu_thing.png"></div>
+      <div><img src="../assets/images/common/top_menu_thing2.png"></div>
+      <div><img src="../assets/images/common/top_menu_thing3.png"></div>
+     </div>    
+    </div>
+   </div>
+   
+   <div class = "ribbon">
+    <ul class = "category_list">
+      <li>
+        <div>Categories <img src="../assets/images/common/arrowDown.png" class = "arrow_down"></div>      
+        <ul class = "drop_list">
+         <li><a href="#">Rings</a></li>
+         <li><a href="#">Bracers</a></li>
+         <li><a href="#">Chains</a></li>
+         <li><a href="#">Ringos</a></li>
+        </ul>
+       </li>
+    </ul>
+    <div style = "width:30%;">
+     <input type = "text" class = "search" placeholder="Search...">
+    </div>
+    <div><img style = "height:45px;" src = "../assets/images/common/shop_image.png"/></div>
+   </div>
+       <!-- <li><img src="images/translate.png"></li> -->
+   </header>

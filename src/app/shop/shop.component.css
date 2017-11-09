@@ -1,0 +1,50 @@
+.goods_list
+{
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ align-items: flex-start;
+ border:1px solid #e14521;
+ width:70%;
+ margin-top: 25px;
+ padding:10px;
+}
+
+.promo
+{
+ display: flex;
+ justify-content: flex-end;
+ width: 70%;
+ margin-top: 25px;
+ font-size:18px;
+ text-transform: uppercase;
+}
+
+.result
+{
+ display: flex;
+ justify-content: flex-end; 
+ width: 70%;
+}
+
+.checkout
+{
+ background-color: #e14521;
+ text-transform: uppercase;
+ color: white;
+ width:150px;
+ border-radius: 3px;
+ padding:10px 15px;
+}
+.inputer
+{
+ font-size:18px;
+ padding:5px;
+ background:#e6e6e6;
+}
+.textStyler
+{
+ text-transform: uppercase;
+ font-size:24px;
+ font-weight: bold;
+}

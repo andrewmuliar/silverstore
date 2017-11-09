@@ -8,12 +8,6 @@
      <li *ngFor = "let good of goodList" (click) = "selectGood(good)">{{good.english+' '+good.id}}</li>
     </ul>
   </div>
-
-<ul>
- <li *ngFor = "let img of url">
-  <img [src] = "img" /> 
-</li>
-</ul>
 <form>
  <input type = "file" id = "selectFile" multiple name = "selectFile" (change) = "readUrl($event)" />          
 </form>
@@ -116,4 +110,10 @@
   <!-- <button type = "submit">Sumbit</button>   -->
 </div>
 </form>
+
+<ul style="list-style:none;">
+    <li *ngFor = "let img of url">
+     <img [src] = "img" style = "height:150px;" /> 
+   </li>
+</ul>
 </main>

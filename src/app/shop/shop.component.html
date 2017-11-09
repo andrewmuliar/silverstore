@@ -1,0 +1,87 @@
+<main>
+    
+    <!--  <div class="goods_header"> 
+      <div>
+      </div>  
+      <div>
+       <p>Product</p>
+      </div>
+      <div>
+       <p>quantity</p>
+      </div> 
+      <div>
+       <p>price</p>
+      </div>  
+      <div>
+      </div>
+     </div> -->
+    <div style = "display: flex; flex-direction: row; justify-content: center;">
+     <!-- <div style = "display: flex; flex-direction: column; width: 30%;"> -->
+      <form [formGroup] = "form">
+       <p class = "textStyler">ordering</p>
+       <input type="text" class = "inputer" name = "name" formControlName = "name" placeholder="name">
+       <input type="text" class = "inputer" name = "username" formControlName = "surname" placeholder="surname">
+       <input type="text" class = "inputer" name = "phone" formControlName = "phone" placeholder="number phone">
+       <input type="text" class = "inputer" name = "email" formControlName = "email" laceholder="email">
+       <input type="text" class = "inputer" name = "country" formControlName = "country" placeholder="country">
+       <input type="text" class = "inputer" name = "city" formControlName = "city" placeholder="city">
+       <input type="text" class = "inputer" name = "street" formControlName = "street" placeholder="street address">
+       <input type="text" class = "inputer" name = "zip" formControlName = "zip" placeholder="zip-code">
+       
+       <div class="promo">
+        <div style="margin-right: 10px;">Enter promotional code:</div>
+        <div><input type = "text" value = "PROMO-CODE" 
+              name = "promo" formControlName = "promo_code" #promo
+              (change) = "checkPromo(promo.value)"></div>
+       </div>   
+      <!-- </form>    
+     </div> -->
+    
+     <div style="display: flex; flex-direction: column;">
+       <p class = "textStyler">payment method</p>
+       <label><input type = "radio" name = "delivery" value = "0" />No delivery</label>
+       <label><input type = "radio" name = "delivery" value = "1" />Deliver</label>
+       <textarea class = "inputer" 
+                 placeholder="comments..." 
+                 style="max-width:250px; max-height: 100px;"
+                 name = "notes"
+                 formControlName = "notes"></textarea>
+     </div>
+    </form>
+    </div>
+    
+    
+     <div class="goods_list" *ngFor = "let shop of shopList">
+      <div><img [src] = "'uploads/'+shop.src" ></div>
+      <div>
+       <p>{{shop.english}}</p>
+       <!-- <p>60 1/4</p> -->
+       <p>Prize {{shop.prize}}</p>
+      </div>
+      <div>
+       <input type = "text" placeholder="1" style="width: 45px;"><span> pc</span>
+      </div>
+      <div>
+       <button (click) = "removeGood(shop)">Delete</button>
+      </div>
+     </div>
+    
+    
+     <div style="display: flex; justify-content: center; width: 100%;">
+      <label><input type="checkbox">Legal....</label>
+     </div>
+    
+     <div class = "result">
+      <div>
+        <p>Cost {{resultSuma}}</p>
+        <p>Promo {{procent}}%</p>
+        <p>Total amount: {{resultEnd}}</p>
+        <p>
+         <input type = "button" style = "margin-bottom:15px;" value = "checkout" 
+         class="checkout" (click) = "clicker()">                   
+         <paypal *ngIf = "showPay == true"  [dataToCommit] = 'commitData'></paypal>         
+        </p>
+      </div>
+     </div>
+    
+    </main>
