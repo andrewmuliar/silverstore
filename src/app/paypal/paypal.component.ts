@@ -4,26 +4,20 @@ import { MainService } from '../services/mainservice.service';
 
 declare let paypal: any;
 
-
 @Component({
   selector: 'paypal',
   providers: [MainService],
-  template: `<div id="paypal-button"></div>`,
+  templateUrl: './paypal.component.html' ,
   styleUrls: ['./paypal.component.css']
 })
 export class PaypalComponent implements OnInit {
 
-  prize = Number()
+  dddata:any    
   @Input() dataToCommit:Object  
-  constructor(private service:MainService) {
-    let ar: Array<any> = []
-    this.prize = 10
-    
-   }
+  constructor(private service:MainService) {}
 
   public ngOnInit(): void {
-    console.log(this.dataToCommit)    
-    let money = this.prize;
+
     (window as any).paypal.Button.render({
       env: 'sandbox', // sandbox | production
       
@@ -40,7 +34,7 @@ export class PaypalComponent implements OnInit {
       
                   // payment() is called when the button is clicked
                   payment: function(data, actions) {
-      
+                    let money = 10;     
                       // Make a call to the REST api to create the payment
                       return actions.payment.create({
                           payment: {
@@ -58,7 +52,7 @@ export class PaypalComponent implements OnInit {
       
                       // Make a call to the REST api to execute the payment
                       return actions.payment.execute().then(function() {
-                        this.service.SumbitPay(this.dataToCommit).subscribe
+                       this.service.SumbitPay(this.dataToCommit).subscribe
                         (
                           data => console.log(data.text())
                         )

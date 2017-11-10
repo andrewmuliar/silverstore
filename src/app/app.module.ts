@@ -28,6 +28,7 @@ import { FixedButtonsComponent } from './fixedButtons/fixedButtons.component';
 //import {ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import { ShopComponent } from './shop/shop.component';
 import { GoodComponent } from './good/good.component';
+import { GoodItemComponent } from './goodItem/goodItem.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { GoodComponent } from './good/good.component';
     ZakazComponent,
     FixedButtonsComponent,
     ShopComponent,
-    GoodComponent
+    GoodComponent,
+    GoodItemComponent
 ],
   imports: [
     BrowserModule,
@@ -102,6 +104,10 @@ import { GoodComponent } from './good/good.component';
       {
        path: 'shop',
        component: ShopComponent
+      },
+      {
+        path:'pay',
+        component: PaypalComponent
       },
       {
        path: '',

@@ -1,42 +1,47 @@
-.product_name
+main
 {
  display: flex;
- justify-content:center;
- margin-top: 25px;
- width: 100%;
- text-transform: uppercase;
+ flex-direction: column;
+ justify-content: space-around;
+}
+.row
+{
+ display: flex;
+ justify-content: center;
+}
+.col
+{
+ display: flex;
+ flex-direction: column;
+ width: 33%;
+}
+.col div
+{
+ padding: 15px;
+}
+.centered
+{
+ justify-content: center;
+}
+.bolder
+{
  font-weight: bold;
- font-size: 22px;
+ font-size:20px;
 }
-
-.product_data
+.goodName
+{
+ padding:15px;
+ font-weight: bold;
+ font-size:24px;
+}
+.goodImg
 {
  display: flex;
  flex-direction: column;
- flex-wrap: wrap;
- justify-content: space-between;
- margin-top: 25px;
-}
-
-.prize_table
-{
- display: flex;
  justify-content: center;
- flex-wrap: wrap;
- width: 35%;
+ align-items: center;
 }
-
-.image_column
+.goodImg div
 {
- display: flex;
- justify-content: center;
- padding: 5px;
-}
-.delivery
-{
- display: flex;
- flex-direction: column;
- flex-wrap: wrap;
- margin-left: 15px;
- font-size: 18px;
+ padding:10px;
 }

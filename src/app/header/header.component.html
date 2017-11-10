@@ -6,8 +6,8 @@
     <div class = "right_side">
       <div class="menu">
        <div><a href = "http://1145014.mt282766.web.hosting-test.net/home.html">home</a></div>
-       <div><a href = "#">shop</a></div>
-       <div><a href = "#">about</a></div>
+       <div><a routerLink = "/shop">shop</a></div>
+       <div><a routerLink = "/about">about</a></div>
        <div><img src="../assets/images/common/translate.png" style="height: 40px;"></div>  	
       </div>
      <div class="row">
@@ -17,18 +17,17 @@
      </div>    
     </div>
    </div>
-   
+
    <div class = "ribbon">
     <ul class = "category_list">
       <li>
         <div>Categories <img src="../assets/images/common/arrowDown.png" class = "arrow_down"></div>      
         <ul class = "drop_list">
-         <li><a href="#">Rings</a></li>
-         <li><a href="#">Bracers</a></li>
-         <li><a href="#">Chains</a></li>
-         <li><a href="#">Ringos</a></li>
+         <li *ngFor = "let category of categoryList">
+           <a [routerLink] = "'/categories/'+category.id">{{category.english}}</a>
+         </li>
         </ul>
-       </li>
+      </li>
     </ul>
     <div style = "width:30%;">
      <input type = "text" class = "search" placeholder="Search...">

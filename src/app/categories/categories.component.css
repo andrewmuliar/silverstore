@@ -1,95 +1,31 @@
 main
 {
  display: flex;
- justify-content: center;
- align-items: flex-start;
+ flex-direction: column;
 }
-main .tovary
+.row
 {
  display: flex;
- justify-content: center;
+ justify-content: space-around;
+}
+.goodsList
+{
+ display: flex;
  flex-wrap: wrap;
+ justify-content: center;
 }
-main .tovary .header_cat
+.goodItem
 {
-  display: flex;
-  justify-content: center;
-  margin-top:15px;
-  margin-bottom: 15px;
-  width:100%;
-  text-align: center;
-  font-size:22px;
-  font-weight:bold;
-  text-transform: uppercase;  
+ text-align:center;
+ padding:15px;
 }
-.properties
+.filter
 {
  display: flex;
-/*position: fixed;*/
+ flex-direction: column;
  justify-content: flex-start;
- flex-wrap: wrap;
- flex-basis: 20%;
- font-size: 22px;
-}
-.properties .price_filter
-{
- width:100%;
- margin-top: 15px;
- margin-bottom: 75px;
-}
-.properties .properties_filter
-{
- width:100%;  
- list-style: none;
-}
-.properties .properties_filter li
-{
-  margin-top:7px;
-}
-.new_arrivals
-{
- display: flex;
- justify-content: center;
- align-items: center;
- text-transform: uppercase;
- text-decoration: underline;
- margin-top: 45px;
- font-size:24px;
- font-weight: bold;
-}
-.arrivals_list
-{
- display: flex;
- flex-wrap: wrap;
- justify-content: center;
- align-items: center;
-}
-.item_list
-{
- text-align: center;
- margin-top: 25px;
- margin-left: 25px;
- font-size:18px;
- text-transform: uppercase;
- transition: all 0.5s; 
-}
-
-.item_list:hover
-{
- box-shadow:2px 8px 25px black;
- transform: scale(1.05);
- cursor: pointer; 
-}
-.item_list .view
-{
- float: left;
- margin-left: 15px;
-}
-.item_list .add_to_cart
-{
- float:right;
- background-color: black;
- padding:5px;
- color:white;
- border-radius: 3px;
+ align-items: flex-start;
+ padding:25px;
+ font-size:22px;
+ width: 30%;
 }

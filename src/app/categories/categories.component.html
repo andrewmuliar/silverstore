@@ -1,34 +1,23 @@
 <main>
-  <div class = "properties">
-   <div class = "price_filter">Price</div>
+ <div class="row">
+  <div class="filter">
+   <div>Price</div>
+   <div>
+    <input type = "text" placeholder="from">
+    <input type = "text" placeholder="to">
+   </div>
    <div>Sort by</div>
-   <ul class="properties_filter">
-    <li><label><input type="radio" name="sort" value="popularity">popularity</label></li>
-    <li><label><input type="radio" name="sort" value="popularity">average rating</label></li>
-    <li><label><input type="radio" name="sort" value="popularity">newness</label></li>
-    <li><label><input type="radio" name="sort" value="popularity">price:low to high</label></li>
-    <li><label><input type="radio" name="sort" value="popularity">price:high to low</label></li>
-   </ul>
-  </div>  
-  
-  <div class="tovary">
-   <div class="header_cat">rings</div>
-   <div class="arrivals_list">
-    
-    <div *ngFor = "let good of goodList">
-     <a [routerLink] = "'/good/'+good.id">
-     <div class = "item_list">
-       <img [src] = "'../assets/images/'+good.src" >
-       <p>{{good.english}}</p>
-       <p>${{good.prize}}</p>
-       <div>
-        <div class="view">View</div>
-        <div class="add_to_cart" (click) = "addToCard(good)">add to cart</div>
-       </div>
-      </div>
-     </a>
-     </div>  
-    </div>  
-   </div> 
-  </main>
+   <label><input type="radio" name="filter_type">popularity</label>
+   <label><input type="radio" name="filter_type">average rating</label>
+   <label><input type="radio" name="filter_type">newness</label>
+   <label><input type="radio" name="filter_type">price:low to high</label>
+   <label><input type="radio" name="filter_type">price:high to low</label>
+  </div>
+  <div class="goodsList">
+   <div *ngFor = "let good of goodList">
+    <app-goodItem [goodInput] = good></app-goodItem>
+   </div>   
+  </div>
+ </div>
+</main>
   

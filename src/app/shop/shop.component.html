@@ -75,12 +75,15 @@
       <div>
         <p>Cost {{resultSuma}}</p>
         <p>Promo {{procent}}%</p>
-        <p>Total amount: {{resultEnd}}</p>
-        <p>
-         <input type = "button" style = "margin-bottom:15px;" value = "checkout" 
-         class="checkout" (click) = "clicker()">                   
-         <paypal *ngIf = "showPay == true"  [dataToCommit] = 'commitData'></paypal>         
-        </p>
+        <p>Total amount: {{resultEnd}}</p>  
+<!-- PAYPAL -->
+         <div id="paypal-button"  style="background-color: #e14521;
+         text-transform: uppercase;
+         color: white;
+         width:150px;
+         border-radius: 3px;
+         padding:10px 15px;"></div>    
+<!-- PAYPAL -->
       </div>
      </div>
     

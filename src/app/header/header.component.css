@@ -49,7 +49,7 @@ header
 {
  display: flex;
  height: 70px;
- margin-top:-5px;
+ margin-top:-8px;
  justify-content: space-around;
  align-items: center;
  background: black;
@@ -100,6 +100,8 @@ background-repeat: round;
 background-size: cover;
 margin:0;
 padding:0;
+width:170px;
+min-height: 185px;
 }
 .drop_list li
 {
