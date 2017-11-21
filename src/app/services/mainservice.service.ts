@@ -4,9 +4,9 @@ import {Http, Response, Headers, RequestOptions} from '@angular/http';
 
 @Injectable()
 export class MainService {
-private url = 'http://localhost/silver'
+//private url = 'http://localhost/silver'
 //private url = 'http://1145014.mt282766.web.hosting-test.net'
-//private url = ''
+private url = ''
 constructor(private _http:Http) { }
 
 addToCard(good)
