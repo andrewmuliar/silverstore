@@ -29,7 +29,7 @@ export class ShopComponent implements OnInit {
   })
 
   shopList: Array<any> = []
-  resultSuma:any
+  resultSuma:any = 0
   procent:any
   showPay :boolean
   resultEnd:any
@@ -42,9 +42,10 @@ export class ShopComponent implements OnInit {
     for(let i = 0; i < Object.keys(storage).length; i++)
     {
      this.shopList.push(storage[i])
-     this.resultSuma =+ storage[i].prize
-     this.resultEnd = this.resultSuma
+     this.resultSuma = Number(this.resultSuma)+Number(storage[i].prize)
+     this.resultEnd  = this.resultSuma
     }
+    console.log( this.resultSuma)
     this.form.controls['prize'].patchValue(this.resultEnd) 
     localStorage.setItem('resultEnd',this.resultEnd) 
     console.log(JSON.parse(localStorage.getItem('resultEnd'))) 
@@ -82,12 +83,12 @@ export class ShopComponent implements OnInit {
                       // onAuthorize() is called when the buyer approves the payment
                       onAuthorize: function(data, actions) {
                           // Make a call to the REST api to execute the payment
-                         /* return actions.payment.execute().then(function() {
-                           this.service.SumbitPay(this.dataToCommit).subscribe
+                          return actions.payment.execute().then(function() {
+                           this.service.SumbitPay(this.fullData).subscribe
                             (
                               data => console.log(data.text())
                             )
-                          });*/
+                          });
                       }
           
                   }, '#paypal-button');

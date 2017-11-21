@@ -4,10 +4,9 @@ import {Http, Response, Headers, RequestOptions} from '@angular/http';
 
 @Injectable()
 export class MainService {
-
-//private url = 'http://localhost/silver'
-private url = 'http://1145014.mt282766.web.hosting-test.net'
-
+private url = 'http://localhost/silver'
+//private url = 'http://1145014.mt282766.web.hosting-test.net'
+//private url = ''
 constructor(private _http:Http) { }
 
 addToCard(good)
@@ -17,13 +16,13 @@ addToCard(good)
  ar = JSON.parse(localStorage.getItem('goods'))
  if(ar === null)
  {
-  alert("undefined")      
+  //alert("undefined")      
   ar = {'0':good}
   localStorage.setItem('goods', JSON.stringify(ar))
  }
  else
  {
-  alert("fined")  
+ // alert("fined")  
   let len = Object.keys(ar).length
   console.log("length = "+len)
   ar[len] = good

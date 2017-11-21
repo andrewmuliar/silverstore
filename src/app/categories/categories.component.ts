@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { GoodItemComponent } from '../goodItem/goodItem.component';
+
 import { MainService } from '../services/mainservice.service';
 
 @Component({

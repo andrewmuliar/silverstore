@@ -1,50 +1,66 @@
-.goods_list
+main
 {
  display: flex;
- flex-wrap: wrap;
- justify-content: space-between;
- align-items: flex-start;
- border:1px solid #e14521;
- width:70%;
- margin-top: 25px;
- padding:10px;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
 }
-
-.promo
+.row
 {
  display: flex;
- justify-content: flex-end;
- width: 70%;
- margin-top: 25px;
- font-size:18px;
- text-transform: uppercase;
+ justify-content: center;
+ width: 100%;
 }
-
-.result
+.col
 {
  display: flex;
- justify-content: flex-end; 
- width: 70%;
+ flex-direction: column;
+ padding:15px;
 }
-
-.checkout
-{
- background-color: #e14521;
- text-transform: uppercase;
- color: white;
- width:150px;
- border-radius: 3px;
- padding:10px 15px;
-}
-.inputer
+input[type='text'], textarea
 {
  font-size:18px;
  padding:5px;
- background:#e6e6e6;
+ background-color: #e6e6e6;
+ margin:5px;
+ border:none;
+ font-family: 'Times New Roman';
 }
-.textStyler
+label
 {
- text-transform: uppercase;
- font-size:24px;
+ font-size: 18px;
+}
+input[type='radio']
+{
+ margin:7px;
+}
+.headers
+{
+ font-size:22px;
  font-weight: bold;
+ text-transform: uppercase;
+ margin-bottom:15px;
+}
+.goods
+{
+ display: flex;
+ justify-content: space-between;
+ width: 90%;
+ font-size:22px;
+ padding:10px;
+}
+.goods div
+{
+ margin:15px;
+}
+.results
+{
+ border:1px solid black;
+}
+.results div
+{
+ border-bottom:1px solid black;
+ font-size:22px;
+ padding:10px;
 }
