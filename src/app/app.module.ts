@@ -66,7 +66,7 @@ import { GoodItemComponent } from './goodItem/goodItem.component';
        component: AdminComponent
       },
       {
-       path:'index',
+       path:'shop',
        component: MainComponent
       },
       {
@@ -78,23 +78,19 @@ import { GoodItemComponent } from './goodItem/goodItem.component';
         component: CategoriesComponent
        },      
       {
-        path: 'pay',
-        component: PaypalComponent
-      },
-      {
-       path: 'admin/goodsAdmin',
+       path: 'goodsAdmin',
        component: GoodsAdminComponent
       },
       {
-       path: 'admin/categAdmin',
+       path: 'categAdmin',
        component: CategoryAdminComponent
       },
       {
-       path: 'admin/emailspam',
+       path: 'emailspam',
        component: EmailspamComponent 
       },
       {
-       path: 'admin/zakazAdmin',
+       path: 'zakazAdmin',
        component: ZakazComponent
       },
       {
@@ -102,7 +98,7 @@ import { GoodItemComponent } from './goodItem/goodItem.component';
        component: GoodComponent
       },
       {
-       path: 'shop',
+       path: 'card',
        component: ShopComponent
       },
       {
@@ -111,7 +107,7 @@ import { GoodItemComponent } from './goodItem/goodItem.component';
       },
       {
        path: '',
-       component: MainComponent
+       component: AboutComponent
       }
     ])    
  ],
