@@ -3,13 +3,13 @@
   <div class = "listOF">
     <ul style = "list-style:none;">
       <li>
-       <input type="button" value="Add new good" (click) = "AddNewGood()" 
+       <input type="button" value="Add new good" (click) = "AddNewPromo()" 
               style="width:100%; font-size:16px; height:45px;"/>
       </li>
-     <li *ngFor = "let good of goodList" (click) = "selectGood(good)">{{good.english+' '+good.id}}</li>
+     <li *ngFor = "let promo of promoList">{{promo.code+' '+promo.procent}}%</li>
     </ul>
   </div>
-<form>
+<!-- <form>
  <input type = "file" id = "selectFile" multiple name = "selectFile" (change) = "readUrl($event)" />          
 </form>
 <form [formGroup] = "form" (ngSubmit) = "InsertGood()">  
@@ -107,13 +107,12 @@
    </ul>
   </div>
   <button type = "submit">Insert</button>
-  <!-- <button type = "submit">Sumbit</button>   -->
 </div>
-</form>
+</form 
 
 <ul style="list-style:none;">
     <li *ngFor = "let img of url">
      <img [src] = "img" style = "height:150px;" /> 
    </li>
-</ul>
+</ul>-->
 </main>

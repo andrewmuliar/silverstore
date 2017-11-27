@@ -51,7 +51,8 @@ export class ShopComponent implements OnInit {
     console.log(JSON.parse(localStorage.getItem('resultEnd'))) 
     this.fullData = {'user_data': this.form.value,
                 'goods': JSON.parse(localStorage.getItem('goods'))
-               }    
+               }  
+    var self = this
    paypal.Button.render({
      env: 'sandbox', // sandbox | production     
 // PayPal Client IDs - replace with your own
@@ -66,9 +67,10 @@ export class ShopComponent implements OnInit {
                       // payment() is called when the button is clicked
     payment: function(data, actions) 
     {
+     console.log(self)
+     self.simpleDo()
     // money = Number(this.resultEnd)
      let money = Number(JSON.parse(localStorage.getItem('resultEnd')))
-     console.log(money)
 // Make a call to the REST api to create the payment
      return actions.payment.create({
             payment: {
@@ -81,19 +83,25 @@ export class ShopComponent implements OnInit {
                           });
                       },
                       // onAuthorize() is called when the buyer approves the payment
-                      onAuthorize: function(data, actions) {
+      onAuthorize: function(data, actions) {   
                           // Make a call to the REST api to execute the payment
-                          return actions.payment.execute().then(function() {
-                           this.service.SumbitPay(this.fullData).subscribe
-                            (
-                              data => console.log(data.text())
-                            )
-                          });
+     // var self = this                          
+                          return actions.payment.execute().then(
+                            () =>
+                            {
+                              self.service.SumbitPay(self.fullData).subscribe(
+                               data => console.log(data.text())
+                              )
+                            })
                       }
           
                   }, '#paypal-button');
 }                                    
 
+ simpleDo()
+ {
+  console.log("asdasd")
+ }
  checkPromo(promo)
  {
   this.service.checkPromo(promo).subscribe(

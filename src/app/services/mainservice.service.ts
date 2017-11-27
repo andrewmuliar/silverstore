@@ -4,9 +4,8 @@ import {Http, Response, Headers, RequestOptions} from '@angular/http';
 
 @Injectable()
 export class MainService {
-//private url = 'http://localhost/silver'
-//private url = 'http://1145014.mt282766.web.hosting-test.net'
-private url = ''
+private url = 'http://localhost/silver'
+//private url = ''
 constructor(private _http:Http) { }
 
 addToCard(good)
@@ -82,6 +81,15 @@ goodsByCategory(category)
  return this._http.get(fullUrl)
 }
 
+/* GetPromoList */
+getPromos()
+{
+ let fullUrl = this.url+"/functions.php?promo_codes=1"
+ return this._http.get(fullUrl)
+}
+
+
+/* */
 getZakaz(start, counter)
 {
  let fullUrl = this.url+"/functions.php?getZakazu="+start+"&count="+counter

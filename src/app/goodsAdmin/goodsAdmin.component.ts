@@ -97,6 +97,7 @@ export class GoodsAdminComponent implements OnInit {
      data => 
      {
       //Uploading file to server with good_id
+      console.log("data.text() = "+data.text())
       this.fileUploader.uploadImage(data.text(), formData)
       .subscribe(res => 
       {
@@ -202,14 +203,16 @@ DeleteGood(good)
 //Adding inputs for sizes and prize
   addSize()
   {
-   this.goodSizes.push({"size":'', "prize":''})
+   console.log("lenght goodsizes = "+this.goodSizes.length)   
    this.form.addControl("size_field"+String(this.goodSizes.length), new FormControl())
    this.form.addControl("prize_field"+String(this.goodSizes.length), new FormControl())   
 
-   this.form.controls['size_field'+String(this.goodSizes.length)].patchValue('')
-   this.form.controls['prize_field'+String(this.goodSizes.length)].patchValue('')
+   this.form.controls['size_field'+String(this.goodSizes.length)].patchValue('250')
+   this.form.controls['prize_field'+String(this.goodSizes.length)].patchValue('200000')
    
    this.form.patchValue({'size_count':this.goodSizes.length})
+   this.goodSizes.push({"size":'', "prize":''})   
+   console.log(this.form.value)
   }
  
 //Show Categories in dropdown list

@@ -29,6 +29,7 @@ import { FixedButtonsComponent } from './fixedButtons/fixedButtons.component';
 import { ShopComponent } from './shop/shop.component';
 import { GoodComponent } from './good/good.component';
 import { GoodItemComponent } from './goodItem/goodItem.component';
+import { PromoAdminComponent } from './promoAdmin/promoAdmin.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { GoodItemComponent } from './goodItem/goodItem.component';
     FixedButtonsComponent,
     ShopComponent,
     GoodComponent,
-    GoodItemComponent
+    GoodItemComponent,
+    PromoAdminComponent
 ],
   imports: [
     BrowserModule,
@@ -80,6 +82,10 @@ import { GoodItemComponent } from './goodItem/goodItem.component';
       {
        path: 'goodsAdmin',
        component: GoodsAdminComponent
+      },
+      {
+       path: 'promos',
+       component:PromoAdminComponent
       },
       {
        path: 'categAdmin',
