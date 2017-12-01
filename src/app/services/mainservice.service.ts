@@ -40,11 +40,11 @@ removeFromCard(good)
  //console.log(good.id)
  if(ar != null)
  {
-  for(let j = 0; j < size; j++)
+  for(let key in ar)
   {
-   if (ar[j]['id']  == good.id)
+   if (ar[key]['id']  == good.id)
    {
-     delete ar[j] //remove object (key) from list of card
+     delete ar[key] //remove object (key) from list of card
     }    
   }
   localStorage.setItem('goods', JSON.stringify(ar))
