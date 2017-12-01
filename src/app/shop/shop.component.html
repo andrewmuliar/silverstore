@@ -1,7 +1,7 @@
 <header-app></header-app>
  <main>
       <div class = "row">
-       <form [formGroup] = "form" style="display:flex;">                        
+        <form [formGroup] = "form">                                              
         <div class = "col">
 
         <div class="headers">ordering</div>
@@ -12,54 +12,59 @@
 
         <div>
          <input type="text" class = "inputer" name = "phone" formControlName = "phone" placeholder="number phone">
-         <input type="text" class = "inputer" name = "email" formControlName = "email" laceholder="email">
+         <input type="text" class = "inputer" name = "email" formControlName = "email" placeholder="email">
         </div>
 
-        <input type="text" class = "inputer" name = "country" formControlName = "country" placeholder="country">
+        <div>
+            <input type="text" class = "inputer" name = "country" formControlName = "country" placeholder="country">
+            <input type="text" class = "inputer" name = "city" formControlName = "city" placeholder="city">
+        </div>
         
         <div>
-         <input type="text" class = "inputer" name = "city" formControlName = "city" placeholder="city">
          <input type="text" class = "inputer" name = "zip" formControlName = "zip" placeholder="zip-code">
+         <input type="text" class = "inputer" name = "street" formControlName = "street" placeholder="street address">         
         </div>
-         <input type="text" class = "inputer" name = "street" formControlName = "street" placeholder="street address">
       </div>
         <div class = "col">
          <div class="headers">Delivery</div>
-         <label><input type="radio" name="delivery" value="0">No deliver</label>
-         <label><input type="radio" name="delivery" value="1">Delivery</label>
+         <label><input type="radio" name="delivery" value="0">payment by VISA/Mastercard</label>
+         <label><input type="radio" name="delivery" value="1">cash on delivery</label>
           <textarea class = "inputer" 
           placeholder="Comments..." 
           style="max-width:250px; max-height: 100px;"
           name = "notes"
-          formControlName = "notes"></textarea>  
-          <div style = "font-size:20px;">Promo-code:</div>
-          <input type = "text" value = "PROMO-CODE" 
-          name = "promo" placeholder="promo-code" formControlName = "promo_code" #promo
-          (change) = "checkPromo(promo.value)">              
+          formControlName = "notes"></textarea>              
         </div>
-      </form>       
+        <div class = "col">            
+         <div style = "font-size:20px;">Promo-code:</div>
+         <input type = "text" value = "PROMO-CODE" 
+         name = "promo" placeholder="promo-code" formControlName = "promo_code" #promo
+         (change) = "checkPromo(promo.value)" style="border-left:1px solid orange;">
+        </div>
+       </form>                       
       </div>
      
-      <div class="row">
+      <div class="row" *ngIf = "shopList">
        <div class="col" style="width:100%; align-items:center;">
          <div class="headers">order details</div>
          <div class="goods" *ngFor = "let shop of shopList">
-          <img [src] = "'upload/'+shop.src">
+          <img [src] = "'../../upload/'+shop.src">
+          {{shop.src}}
           <div>{{shop.english}}</div>
           <div>Width: {{shop.weight}}</div>
           <div>Size: {{shop.size}}</div>
           <div>Price: ${{shop.prize}}</div>
+          <div><button (click) = "DeleteItem(shop)">Delete</button></div>          
          </div>
        </div>  	
       </div>
 
-      <div class="row" style="justify-content: flex-end;">
+      <div class="row" style="justify-content: flex-end;">         
        <div class="col results">
          <div>Prize: ${{resultSuma}}</div>
          <div>Promo: {{procent}}%</div>
          <div>Total: {{resultEnd}}</div>
-       </div>
-       <div class = "col">
+       </div>       
         <!-- PAYPAL -->
         <div id="paypal-button"  style="background-color: #e14521;
         text-transform: uppercase;
@@ -68,7 +73,6 @@
         border-radius: 3px;
         padding:10px 15px;"></div>    
         <!-- PAYPAL -->       
-      </div>
       </div>
      </main>
 <footer-app></footer-app>     

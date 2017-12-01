@@ -4,8 +4,8 @@ import {Http, Response, Headers, RequestOptions} from '@angular/http';
 
 @Injectable()
 export class MainService {
-private url = 'http://localhost/silver'
-//private url = ''
+//private url = 'http://localhost/silver'
+private url = ''
 constructor(private _http:Http) { }
 
 addToCard(good)
@@ -23,31 +23,32 @@ addToCard(good)
  {
  // alert("fined")  
   let len = Object.keys(ar).length
-  console.log("length = "+len)
+  //console.log("length = "+len)
   ar[len] = good
   localStorage.setItem('goods', JSON.stringify(ar))           
  }
  let a = JSON.parse(localStorage.getItem('goods'))
-console.log(a)
+//console.log(a)
 }
 
 removeFromCard(good)
 {
  let ar:Array<any> = []
+ let index: number;
  ar = JSON.parse(localStorage.getItem('goods'))
+ let size: number = Object.keys(ar).length 
+ //console.log(good.id)
  if(ar != null)
  {
-  for(let j = 0; j < ar.length; j++)
+  for(let j = 0; j < size; j++)
   {
-   let index: number = ar[j]['id'].indexOf(good.id);
-   if (index !== -1) 
-    {
-     ar.splice(index, 1);
-    } 
+   if (ar[j]['id']  == good.id)
+   {
+     delete ar[j] //remove object (key) from list of card
+    }    
+  }
   localStorage.setItem('goods', JSON.stringify(ar))
   let storage = JSON.parse(localStorage.getItem('goods'))
-  console.log(storage)     
-  } 
  }
 }
 //GETTERS
@@ -113,7 +114,7 @@ delCateg(categID)
 createGood(data)
 {
  let fullUrl = this.url+'/creator_goods.php'
- console.log(data)
+ //////console.log(data)
  let headers = new Headers();
  headers.append('Content-Type', 'application/json; charset=UTF-8'); 
  return this._http.post(fullUrl, data, {headers:headers})
@@ -122,7 +123,7 @@ createGood(data)
 createCategory(data)
 {
  let fullUrl = this.url+'/creator_category.php'
- console.log(data)
+ ////console.log(data)
  let headers = new Headers();
  headers.append('Content-Type', 'application/json; charset=UTF-8'); 
  return this._http.post(fullUrl, data, {headers:headers}) 
@@ -133,7 +134,7 @@ createCategory(data)
 updateGood(data)
 {
  let fullUrl = this.url+'/creator_goods.php'
- console.log(data)
+ ////console.log(data)
  let headers = new Headers();
  headers.append('Content-Type', 'application/json; charset=UTF-8'); 
  return this._http.post(fullUrl, data, {headers:headers}) 
@@ -143,7 +144,7 @@ updateGood(data)
  sendEmail(email)
  {
   let fullUrl = this.url+'/email.php'
-  console.log(email)
+  ////console.log(email)
   let headers = new Headers();
   headers.append('Content-Type', 'application/json; charset=UTF-8'); 
   return this._http.post(fullUrl, email, {headers:headers})   

@@ -38,20 +38,23 @@ export class ShopComponent implements OnInit {
   constructor(private service:MainService) { }
   
   public ngOnInit(): void {
-    let storage: any = JSON.parse(localStorage.getItem('goods'))               
-    for(let i = 0; i < Object.keys(storage).length; i++)
+    let storage = JSON.parse(localStorage.getItem('goods'))
+   // console.log('storage = '+ Object.keys(storage).length)
+    for(let key in storage)
     {
-     this.shopList.push(storage[i])
-     this.resultSuma = Number(this.resultSuma)+Number(storage[i].prize)
+   //  console.log(storage[key])
+     this.shopList.push(storage[key])
+   // console.log("this.shopList =  "+this.shopList)
+     this.resultSuma = Number(this.resultSuma)+Number(storage[key].prize)
      this.resultEnd  = this.resultSuma
     }
-    console.log( this.resultSuma)
+   // console.log(this.resultSuma)
     this.form.controls['prize'].patchValue(this.resultEnd) 
     localStorage.setItem('resultEnd',this.resultEnd) 
-    console.log(JSON.parse(localStorage.getItem('resultEnd'))) 
+   // console.log(JSON.parse(localStorage.getItem('resultEnd'))) 
     this.fullData = {'user_data': this.form.value,
-                'goods': JSON.parse(localStorage.getItem('goods'))
-               }  
+                     'goods': JSON.parse(localStorage.getItem('goods'))
+                    }  
     var self = this
    paypal.Button.render({
      env: 'sandbox', // sandbox | production     
@@ -67,10 +70,8 @@ export class ShopComponent implements OnInit {
                       // payment() is called when the button is clicked
     payment: function(data, actions) 
     {
-     console.log(self)
-     self.simpleDo()
     // money = Number(this.resultEnd)
-     let money = Number(JSON.parse(localStorage.getItem('resultEnd')))
+     let money = self.resultEnd
 // Make a call to the REST api to create the payment
      return actions.payment.create({
             payment: {
@@ -98,10 +99,6 @@ export class ShopComponent implements OnInit {
                   }, '#paypal-button');
 }                                    
 
- simpleDo()
- {
-  console.log("asdasd")
- }
  checkPromo(promo)
  {
   this.service.checkPromo(promo).subscribe(
@@ -119,7 +116,7 @@ export class ShopComponent implements OnInit {
   )
  } 
   //Remove Good from localstorage
-  removeGood(good)
+  DeleteItem(good)
   {
    const index: number = this.shopList.indexOf(good);
    if (index !== -1) 
