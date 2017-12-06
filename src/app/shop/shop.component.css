@@ -45,6 +45,7 @@ input[type='radio']
 .goods
 {
  display: flex;
+ flex-wrap: wrap;
  justify-content: space-between;
  width: 90%;
  font-size:22px;

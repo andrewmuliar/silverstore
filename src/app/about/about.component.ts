@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
+  showWurma:boolean = false;
   constructor() { }
 
   ngOnInit() {
+    this.showWurma = true
   }
-
+  OnDestroy()
+  {
+   this.showWurma = false
+  }
 }

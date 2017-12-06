@@ -1,15 +1,26 @@
-header
-{
- display: flex;
- flex-direction: column;
- justify-content: space-around;
- padding-top:10px;
+ header
+ {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-top:10px;
+  overflow-x: hidden;
+ }
+ @media only screen and (min-width: 500px) {
+ .top_menu
+ {
+  display: flex;
+  justify-content: space-around;
+ }
 }
-.top_menu
-{
- display: flex;
- justify-content: space-around;
-}
+@media only screen and (max-width: 500px) {
+    .top_menu
+    {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+    }
+}    
 .right_side
 {
  display: flex;
@@ -20,20 +31,35 @@ header
 {
  display: flex;
  justify-content: flex-end;
- flex-wrap: wrap;
+}
+.row img 
+{
+ width:100%;
 }
 .menu
 {
  display: flex;
  justify-content: flex-end;
 }
-.menu div
-{
- padding: 0 15px;
- font-size:24px;
- text-transform: uppercase;
- text-decoration: none;
- color:black;  
+@media only screen and (max-width: 500px) {
+    .menu div
+    {
+        padding: 0 15px;
+        font-size:16px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color:black;
+    }
+}
+@media only screen and (min-width: 500px) {    
+    .menu div
+    {
+    padding: 0 15px;
+    font-size:24px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color:black;  
+    }
 }
 .menu div a
 {
@@ -58,22 +84,55 @@ header
 
 .ribbon div
 {
-align-self:center;
-
+ align-self:center;
 }
-.search
-{
-font-size:22px;
-font-style: italic;
-width:100%;
+@media only screen and (min-width: 500px) {  
+ .shop_image
+ {
+  height:45px;
+ }
 }
+@media only screen and (max-width: 500px) {  
+ .shop_image
+ {
+  height:29px;
+ }
+} 
+@media only screen and (min-width: 500px) {  
+ .search
+ {
+ font-size:22px;
+ font-style: italic;
+ width:100%;
+ }
+}
+@media only screen and (max-width: 500px) {
+ .search
+ {
+  font-size:16px;
+  font-style: italic;
+  width:100%;
+ }
+}   
 
-.category_list
-{
-color:white;
-text-transform: uppercase;
-font-size:22px;
-list-style: none;
+@media only screen and (max-width: 500px) {
+    .category_list
+    {
+    color:white;
+    text-transform: uppercase;
+    font-size:16px;
+    list-style: none;
+    }
+}
+@media only screen and (min-width: 500px) {
+    
+ .category_list
+ {
+ color:white;
+ text-transform: uppercase;
+ font-size:22px;
+ list-style: none;
+ }
 }
 .category_list li:hover
 {

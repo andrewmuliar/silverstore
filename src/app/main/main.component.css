@@ -6,6 +6,10 @@
  transition:0.5s;
  animation:fader 1s; 
 }
+.row img 
+{
+ width:100%;
+}
 .row > div
 {
  padding:0 5px;

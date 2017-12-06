@@ -1,6 +1,6 @@
 <body>
- <div class="wurma">
-  <img src="../../assets/images/common/blacklogo.png">
+ <div class="wurma" *ngIf="showWurma">
+  <img src="../../assets/images/common/bigBlackLogo.png">
  </div>	
 <div class="header">
  <div style="background-image:white;">
@@ -10,7 +10,7 @@
   <ul class="list">
   	<li><a routerLink = "/">home</a></li>
   	<li><a routerLink = "/shop">shop</a></li>
-  	<li><a routerLink = "/about">about</a></li>
+  	<li><a routerLink = "/about">CGV et Mentions Legales</a></li>
   	<li>
      <a routerLink = "/card">
       <img src="../../assets/images/common/telega.png" style="height: 25px;">
@@ -22,7 +22,7 @@
 </div>
 <div>
 
- <div class="row" style="height: 75vh;">
+ <div class="row">
   <ul class="categ_block">
    <li>rings</li>
    <li>chains</li>
@@ -41,30 +41,30 @@
 
  <div class="column">
   <div style="align-self: flex-start;">
-   <img src="../../assets/images/common/step1.png" style="width:auto;">
+   <img src="../../assets/images/common/step1.png">
   </div>  
   <div style="align-self: flex-end;">
-   <img src="../../assets/images/common/step2.png" style="width:auto;">
+   <img src="../../assets/images/common/step2.png">
   </div>  
   <div style="align-self: flex-start;">
-   <img src="../../assets/images/common/step3.png" style="width:auto;">
+   <img src="../../assets/images/common/step3.png" >
   </div>  
   <div style="align-self: flex-end;">
-   <img src="../../assets/images/common/step4.png" style="width:auto;">
+   <img src="../../assets/images/common/step4.png" >
   </div>  
   <div style="align-self: flex-start;">
-   <img src="../../assets/images/common/step5.png" style="width:auto;">
+   <img src="../../assets/images/common/step5.png" >
   </div>  
  </div>
 
- <div class="row">
+ <div class="row centered">
   <a routerLink = "/shop" class="go_to">
    <div>Go to shop</div>
   </a>
  </div>
  
  <div class="column">
-  <div class="about_us">About us</div>
+  <div class="about_us">CGV et Mentions Legales</div>
   <div class="about_text">
    <p>Light Rider - products from silver: rings, hangers, chains, bracelets and buckles. Our passion is motorcycles and stylish silver jewelry for men. Bold design, attention to detail and the highest quality silver - 925 tests are combined in our products. Each product has its own legend and philosophy.</p>
    <p>We are proud of the Ukrainian production. Lifetime warranty on products.</p>
@@ -82,7 +82,7 @@
  </div>
 
  <div class="column">
-  <img class="imager" src="../../assets/images/logo_for_home.png" style="width:250px;">
+  <img class="imager" src="../../assets/images/common/blacklogo.png" style="width:250px;">
   <div class="contact">0 864 648 857</div>
  </div>
 </div>
