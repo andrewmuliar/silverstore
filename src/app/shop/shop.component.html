@@ -49,11 +49,10 @@
          <div class="headers">order details</div>
          <div class="goods" *ngFor = "let shop of shopList">
           <img [src] = "'../../upload/'+shop.src">
-          {{shop.src}}
           <div>{{shop.english}}</div>
           <div>Width: {{shop.weight}}</div>
           <div>Size: {{shop.size}}</div>
-          <div>Price: ${{shop.prize}}</div>
+          <div>Price: €{{shop.prize}}</div>
           <div><button (click) = "DeleteItem(shop)">Delete</button></div>          
          </div>
        </div>  	

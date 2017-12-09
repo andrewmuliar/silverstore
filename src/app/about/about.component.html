@@ -8,15 +8,21 @@
  </div>
  <div class="rightmenu">
   <ul class="list">
-  	<li><a routerLink = "/">home</a></li>
-  	<li><a routerLink = "/shop">shop</a></li>
-  	<li><a routerLink = "/about">CGV et Mentions Legales</a></li>
+  	<li><a routerLink = "/">{{dictionary[language].home}}</a></li>
+  	<li><a routerLink = "/shop">{{dictionary[language].shop}}</a></li>
+  	<li><a routerLink = "/about">{{dictionary[language].notice}}</a></li>
   	<li>
      <a routerLink = "/card">
       <img src="../../assets/images/common/telega.png" style="height: 25px;">
      </a>
      </li>
-  	<li><img src="../../assets/images/common/home_trans.png" style="height: 25px;"></li>
+  	<li (click) = "showLangList()">
+     <img src="../../assets/images/common/home_trans.png" style="height: 25px;">
+     <ul class = "trans_list" [hidden] = "!showLang">
+     <li (click) = "setLang('eng')">English</li>
+     <li (click) = "setLang('france')">France</li>
+     </ul>
+    </li>
   </ul>
  </div>
 </div>
@@ -24,22 +30,22 @@
 
  <div class="row">
   <ul class="categ_block">
-   <li>rings</li>
-   <li>chains</li>
-   <li>suspension</li>
-   <li>bracelets</li>
-   <li>buclets</li>
+   <li>{{dictionary[language].rings}}</li>
+   <li>{{dictionary[language].chains}}</li>
+   <li>{{dictionary[language].suspension}}</li>
+   <li>{{dictionary[language].bracelet}}</li>
+   <li>{{dictionary[language].boucles}}</li>
   </ul>
  
   <ul class="detail_block">
-   <li>925 silver sample</li>
-   <li>use of technoloiges 3d printer</li>
-   <li>full production cycle</li>
+   <li>{{dictionary[language].sample}}</li>
+   <li>{{dictionary[language].printer}}</li>
+   <li>{{dictionary[language].cycle}}</li>
   </ul>
 
  </div>
 
- <div class="column">
+ <!-- <div class="column">
   <div style="align-self: flex-start;">
    <img src="../../assets/images/common/step1.png">
   </div>  
@@ -55,19 +61,19 @@
   <div style="align-self: flex-start;">
    <img src="../../assets/images/common/step5.png" >
   </div>  
- </div>
+ </div> -->
 
  <div class="row centered">
   <a routerLink = "/shop" class="go_to">
-   <div>Go to shop</div>
+   <div>{{dictionary[language].go}}</div>
   </a>
  </div>
  
  <div class="column">
-  <div class="about_us">CGV et Mentions Legales</div>
+  <div class="about_us">{{dictionary[language].about}}</div>
   <div class="about_text">
-   <p>Light Rider - products from silver: rings, hangers, chains, bracelets and buckles. Our passion is motorcycles and stylish silver jewelry for men. Bold design, attention to detail and the highest quality silver - 925 tests are combined in our products. Each product has its own legend and philosophy.</p>
-   <p>We are proud of the Ukrainian production. Lifetime warranty on products.</p>
+   <p>Rebel Club Jewelry - {{dictionary[language].uniq}}</p>
+   <p>{{dictionary[language].text}}</p>
   </div>
  </div>
 
@@ -81,9 +87,9 @@
   </div>
  </div>
 
- <div class="column">
+ <!-- <div class="column">
   <img class="imager" src="../../assets/images/common/blacklogo.png" style="width:250px;">
   <div class="contact">0 864 648 857</div>
- </div>
+ </div> -->
 </div>
 </body>

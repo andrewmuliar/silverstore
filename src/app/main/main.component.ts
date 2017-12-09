@@ -10,8 +10,24 @@ import { MainService } from '../services/mainservice.service';
 })
 export class MainComponent implements OnInit {
 
+  dictionary: any = 
+  {
+   eng:
+   {
+    arivals:'New arrivals',
+    view:'View more'
+   },
+   france:
+   {
+    arivals:'maiNouveautésson',
+    view:'Voir plus' 
+   }
+  }
+  language = ''
+
   constructor(private service:MainService) { }
 
   ngOnInit() {
+    this.language = this.service.translate()    
   }
 }

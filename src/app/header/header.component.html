@@ -5,10 +5,16 @@
     </div>
     <div class = "right_side">
       <div class="menu">
-       <div><a routerLink = "/">home</a></div>
-       <div><a routerLink = "/shop">shop</a></div>
-       <div><a routerLink = "/about">CGV et Mentions Legales</a></div>
-       <div><img src="../assets/images/common/translate.png" style="height: 40px;"></div>  	
+       <div><a routerLink = "/">{{dictionary[language].home}}</a></div>
+       <div><a routerLink = "/shop">{{dictionary[language].shop}}</a></div>
+       <div><a routerLink = "/about">{{dictionary[language].notice}}</a></div>
+       <div class="translate" (click) = "showLangList()">
+         <img src="../assets/images/common/translate.png" style="height: 40px;">
+         <ul class="trans_list" [hidden] = "!showLang">
+          <li (click) = "setLang('eng')">English</li>
+          <li (click) = "setLang('france')">France</li>
+         </ul>
+        </div>  	
       </div>
      <div class="row">
       <div><img src="../assets/images/common/top_menu_thing.png"></div>
@@ -21,16 +27,17 @@
    <div class = "ribbon">
     <ul class = "category_list">
       <li>
-        <div>Categories <img src="../assets/images/common/arrowDown.png" class = "arrow_down"></div>      
+        <div>{{dictionary[language].category}} <img src="../assets/images/common/arrowDown.png" class = "arrow_down"></div>      
         <ul class = "drop_list">
          <li *ngFor = "let category of categoryList">
-           <a [routerLink] = "'/categories/'+category.id">{{category.english}}</a>
+           <a *ngIf = 'language == "eng"'    [routerLink] = "'/categories/'+category.id">{{category.english}}</a>
+           <a *ngIf = 'language == "france"' [routerLink] = "'/categories/'+category.id">{{category.france}}</a>           
          </li>
         </ul>
       </li>
     </ul>
     <div style = "width:30%;">
-     <input type = "text" class = "search" placeholder="Search...">
+     <input type = "text" class = "search" placeholder = {{dictionary[language].search}}>
     </div>
     <a routerLink = '/card' >
      <div><img class = "shop_image" src = "../assets/images/common/shop_image.png"/></div>

@@ -8,6 +8,20 @@ export class MainService {
 private url = ''
 constructor(private _http:Http) { }
 
+translate()
+{
+  let language = localStorage.getItem('translate')
+  if(language === null)
+  {
+   localStorage.setItem('translate', 'eng')
+   language = 'eng'
+  }
+  return language
+}
+setLanguage(language)
+{
+ localStorage.setItem('translate', language)
+}
 addToCard(good)
 {
 // localStorage.clear()

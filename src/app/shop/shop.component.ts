@@ -57,13 +57,13 @@ export class ShopComponent implements OnInit {
                     }  
     var self = this
    paypal.Button.render({
-     env: 'sandbox', // sandbox | production     
+     env: 'production', // sandbox | production     
 // PayPal Client IDs - replace with your own
 // Create a PayPal app: https://developer.paypal.com/developer/applications/create
      client: {
 // sandbox:'Ab7GeddW8UczlTdTcQQs40bivwnkIJc2LzsztPm9ts5rXaxh_um1OFcduDNBsz0WKSsrxkfoU8rlggf4',
-              sandbox: 'AbzpLxjS-ysou0JTQeJqhUaICk1kSwGSfDFos-GJeAVhOJwoXbthvFDGFyhPtVZDqxR4K_b8vqQedams',
-              production: '<insert production client id>'
+             // sandbox: 'AbzpLxjS-ysou0JTQeJqhUaICk1kSwGSfDFos-GJeAVhOJwoXbthvFDGFyhPtVZDqxR4K_b8vqQedams'
+              production: 'ASCuz3WfZbILH-wwshm6RuYPeGIUTlOYYdCQ00XT70dwL46fTchX2b-kr2Bn4iJ0EPejulloJsAaLsge'
              },
                       // Show the buyer a 'Pay Now' button in the checkout flow
      commit: true,
@@ -77,7 +77,7 @@ export class ShopComponent implements OnInit {
             payment: {
                       transactions: [
                                       {
-                                          amount: { total: money, currency: 'USD' }
+                                          amount: { total: money, currency: 'EUR' }
                                       }
                                   ]
                               }

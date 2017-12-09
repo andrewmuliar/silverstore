@@ -134,6 +134,19 @@
  list-style: none;
  }
 }
+.trans_list
+{
+ background:black;
+ position: absolute;
+ padding:5px;
+ margin:0;
+ color: white;
+ list-style: none;
+}
+.trans_list li
+{
+ padding:5px;
+}
 .category_list li:hover
 {
 cursor: pointer;
@@ -155,8 +168,8 @@ position: absolute;
 opacity:0;
 list-style: none;
 background-image: url('../../assets/images/common/ulBack.png');
-background-repeat: round;
-background-size: cover;
+background-repeat: no-repeat;
+background-size: 385px;
 margin:0;
 padding:0;
 width:170px;
