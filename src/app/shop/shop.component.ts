@@ -63,7 +63,9 @@ export class ShopComponent implements OnInit {
      client: {
 // sandbox:'Ab7GeddW8UczlTdTcQQs40bivwnkIJc2LzsztPm9ts5rXaxh_um1OFcduDNBsz0WKSsrxkfoU8rlggf4',
              // sandbox: 'AbzpLxjS-ysou0JTQeJqhUaICk1kSwGSfDFos-GJeAVhOJwoXbthvFDGFyhPtVZDqxR4K_b8vqQedams'
-              production: 'ASCuz3WfZbILH-wwshm6RuYPeGIUTlOYYdCQ00XT70dwL46fTchX2b-kr2Bn4iJ0EPejulloJsAaLsge'
+             // mine porduction key AUXjN34BBIjHF_CtjPQJ9rbQlYslokIlVwrVwxtYYc_owdbMPr6LN-OxjsOaYD4JVCTD3grchyHU17-K
+             // production OF CLIENT  - ASCuz3WfZbILH-wwshm6RuYPeGIUTlOYYdCQ00XT70dwL46fTchX2b-kr2Bn4iJ0EPejulloJsAaLsge             
+              production: 'Abson7Iq8mbjlFE9tmUhFWqCCpL16xA8U9XDWgzqk2m1WsjyFPfUXXKl8FYuHwq2cLCAHr8dPcZJWXFP'
              },
                       // Show the buyer a 'Pay Now' button in the checkout flow
      commit: true,
