@@ -9,9 +9,7 @@
      <li *ngFor = "let good of goodList" (click) = "selectGood(good)">{{good.english+' '+good.id}}</li>
     </ul>
   </div>
-<form>
  <input type = "file" id = "selectFile" multiple name = "selectFile" (change) = "readUrl($event)" />          
-</form>
 <form [formGroup] = "form" (ngSubmit) = "InsertGood()">  
  
   <div class = "goodsEdit">
@@ -91,7 +89,7 @@
    </label>
    <ul>
      <li>
-       <button (click) = "addSize()">Add size and prize</button>
+       <input type="button" (click) = "addSize()" value="Add size and prize">
     </li>
      <li *ngFor = "let size of goodSizes;  let i = index">
        <input type = "input" class="param" placeholder="00"
@@ -102,11 +100,11 @@
        [name] = "'prize_field'+i"
        [formControlName] = "'prize_field'+i"
       />       
-       <button (click) = "removeSize(size)" >Delete</button>
+       <input type="button" (click) = "removeSize(size)" value="Delete">
      </li>
    </ul>
   </div>
-  <button type = "submit">Insert</button>
+  <input type = "submit" value = "Insert">
   <!-- <button type = "submit">Sumbit</button>   -->
 </div>
 </form>
