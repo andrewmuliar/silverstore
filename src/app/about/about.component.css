@@ -221,10 +221,10 @@ aside ul li
  justify-content:center; 
  position: fixed; 
  background-image: url('../../assets/images/common/back.png'); 
- width: 100%; 
+ /* width: 100%;  */
  height: 100%;
  animation-name: wuwka;
- animation-delay: 1s;
+ animation-delay: 3s;
  animation-duration: 2s;
  animation-fill-mode: forwards;
 }
@@ -243,7 +243,7 @@ body
  .header
  {
  display: flex;
- flex-direction: column;
+ flex-direction: row;
  align-items: center;
  justify-content: space-around;
  background: black;
@@ -262,16 +262,68 @@ body
 {
  padding:10px;
 }
-.rightmenu
+@media screen and (min-width:500px)
 {
- display: flex;
- justify-content: space-between;
+ .submenu
+ {
+  display: none;
+ }
+ .trans_list
+ {
+  background:black;
+  position: absolute;
+  padding:5px;
+  right:15px;
+  margin:0;
+  color: white;
+  list-style: none;
+ }
+ .trans_list li
+ {
+  padding:5px;
+ } 
+ .list
+ {
+  display: flex;
+  background: black;
+  left:0;
+  margin-top:0;
+  flex-direction: row;
+  justify-content: space-between;
+ }   
 }
-.list
+@media screen and (max-width:500px)
 {
- display: flex;
- justify-content: space-between;
+ .submenu
+ {
+  display: block;
+  color:white;
+ }
+ .trans_list
+ {
+  background:black;
+  position: absolute;
+  padding:5px;
+  margin:0;
+  color: white;
+  list-style: none;
+ }
+ .trans_list li
+ {
+  padding:5px;
+ } 
+ .list
+ {
+  position: fixed;
+  background: black;
+  left:0;
+  width:100%;
+  margin-top:0;
+  flex-direction: column;
+  justify-content: space-between;
+ }  
 }
+
 .list li
 {
  padding:15px;
@@ -336,7 +388,6 @@ body
   display: flex;
   flex-direction: column;
   align-items: center;
-  width:100%;
   margin: auto auto;
   padding:50px;
  }
@@ -347,19 +398,6 @@ body
  }
 }
 
-.trans_list
-{
- background:black;
- position: absolute;
- padding:5px;
- margin:0;
- color: white;
- list-style: none;
-}
-.trans_list li
-{
- padding:5px;
-}
 
 .categ_block
 {
@@ -369,7 +407,7 @@ body
 {
  margin:15px;
  padding:15px;
- font-size:3em;
+ font-size:2em;
  background: black;
  color: #232323;
  font-family: Gothic;

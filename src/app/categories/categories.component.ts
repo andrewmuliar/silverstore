@@ -25,6 +25,7 @@ export class CategoriesComponent implements OnInit {
       this.service.goodsByCategory(data['category']).subscribe(
         data => {
           this.goodList = JSON.parse(data.text())
+          console.log(this.goodList)
         }
       )
      }

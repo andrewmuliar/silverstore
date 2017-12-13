@@ -3,7 +3,8 @@
   
   <div class="row">
    <div class="col">
-    <div class="goodName">{{goodItem.desc_english}}</div> 	
+    <div class="goodName" *ngIf='language == "eng"'>{{goodItem.english}}</div>
+    <div class="goodName" *ngIf='language == "france"'>{{goodItem.france}}</div> 	     	
     <img src="../images/goodItem.png" style="width: 100%;">
     <div>
      <img [src] = "'../../upload/'+goodItem.src" style="width: 45%;">
@@ -14,14 +15,16 @@
    
    <div class="col">
     <div class="row"></div>
-    <div style="padding-top:35px; text-indent: 15px; font-size:20px;">
+    <div *ngIf = 'language == "eng"'style="padding-top:35px; text-indent: 15px; font-size:20px;">
       {{goodItem.desc_english}}
     </div>
+    <div *ngIf = 'language == "france"' style="padding-top:35px; text-indent: 15px; font-size:20px;">
+      {{goodItem.desc_france}}
+    </div>    
    </div>
   
   
   <div class="col" style="align-items:center; justify-content: flex-start; width: 10%; padding-top:25px;">
-    <div class="row"></div>
     <form>
       <select #OptionPrize style = "font-size:18px;">
        <option *ngFor = "let option of options" [value] = "[option.size, option.prize]">

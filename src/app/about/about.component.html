@@ -6,8 +6,9 @@
  <div style="background-image:white;">
   <img src="../../assets/images/common/blacklogo.png" class="logo_image">
  </div>
- <div class="rightmenu">
-  <ul class="list">
+ <div class="rightmenu"> 
+  <div (click) = "showSubmenu()" class = "submenu"><img src ="../../assets/images/common/burger.png"></div>
+  <ul class="list" *ngIf = "!showSub">
   	<li><a routerLink = "/">{{dictionary[language].home}}</a></li>
   	<li><a routerLink = "/shop">{{dictionary[language].shop}}</a></li>
   	<li><a routerLink = "/about">{{dictionary[language].notice}}</a></li>

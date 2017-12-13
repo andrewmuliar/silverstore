@@ -93,7 +93,11 @@ export class ShopComponent implements OnInit {
                             () =>
                             {
                               self.service.SumbitPay(self.fullData).subscribe(
-                               data => console.log(data.text())
+                               data => 
+                               {
+                                console.log(data.text())
+                                localStorage.clear()
+                               }
                               )
                             })
                       }
@@ -126,5 +130,12 @@ export class ShopComponent implements OnInit {
     this.shopList.splice(index, 1);
     this.service.removeFromCard(good)
    }
+   let storage = JSON.parse(localStorage.getItem('goods'))
+    for(let key in storage)
+    {
+     this.shopList.push(storage[key])
+     this.resultSuma = Number(this.resultSuma)+Number(storage[key].prize)
+     this.resultEnd  = this.resultSuma
+    }   
   }
 }

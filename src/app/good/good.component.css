@@ -4,16 +4,40 @@ main
  flex-direction: column;
  justify-content: space-around;
 }
-.row
+@media screen and (min-width: 500px)
 {
- display: flex;
- justify-content: center;
+ .row
+ {
+  display: flex;
+  justify-content: center;
+ }
 }
-.col
+@media screen and (max-width: 500px)
 {
- display: flex;
- flex-direction: column;
- width: 33%;
+ .row
+ {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
+}
+
+@media screen and (min-width:500px)
+{
+ .col
+ {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+ }
+}
+@media screen and (min-width:500px)
+{
+ .col
+ {
+  display: flex;
+  flex-direction: column;   
+ }
 }
 .col div
 {

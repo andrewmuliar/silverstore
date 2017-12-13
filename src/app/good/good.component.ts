@@ -13,10 +13,14 @@ export class GoodComponent implements OnInit {
 
   goodItem: any;
   options:any;
+  language:any;
 
   constructor(private service:MainService, private router:ActivatedRoute) { }
 
-  ngOnInit() {
+  ngOnInit() {    
+      
+    this.language = this.service.translate()  
+
     this.router.params.subscribe(
       data => 
       {
@@ -25,6 +29,7 @@ export class GoodComponent implements OnInit {
        res =>
        {
         this.goodItem = JSON.parse(res.text())
+        console.log(this.goodItem)
         this.goodItem = this.goodItem[0]//One elent must return
         console.log(this.goodItem)
         this.service.getGoodSizes(data['goodID']).subscribe
@@ -39,7 +44,7 @@ export class GoodComponent implements OnInit {
        }
       )
      }
-    )
+    )    
    }
 
    AddToCard(good, option)

@@ -88,6 +88,7 @@ export class AboutComponent implements OnInit {
     Rejoignez-nous et nous serons toujours là pour vous rendre plus heureux!`   
    }
   }
+  showSub:boolean;
   constructor(private service:MainService) { }
 
   ngOnInit() {
@@ -107,5 +108,11 @@ export class AboutComponent implements OnInit {
   showLangList()
   {
    this.showLang = !this.showLang
+  }
+  showSubmenu()
+  {
+   if (this.showSub == undefined) this.showSub = false
+   else
+    this.showSub = !this.showSub
   }
 }
