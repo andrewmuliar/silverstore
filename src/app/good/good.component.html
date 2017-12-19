@@ -5,43 +5,39 @@
    <div class="col">
     <div class="goodName" *ngIf='language == "eng"'>{{goodItem.english}}</div>
     <div class="goodName" *ngIf='language == "france"'>{{goodItem.france}}</div> 	     	
-    <img src="../images/goodItem.png" style="width: 100%;">
+    <img [src] = "'../../upload/'+goodItem.src" style="width: 100%;">
     <div>
-     <img [src] = "'../../upload/'+goodItem.src" style="width: 45%;">
-     <img [src] = "'../../upload/'+goodItem.src" style="width: 45%;">
+    <ul>
+     <li *ngFor = "let image of imageList">
+      <img [src] = "'../../upload/'+image.src" style="width:45%;"/>       
+     </li>
+    </ul>
     </div>
    </div>
   
    
-   <div class="col">
-    <div class="row"></div>
+   <div class="col" style="align-items:center;">
     <div *ngIf = 'language == "eng"'style="padding-top:35px; text-indent: 15px; font-size:20px;">
       {{goodItem.desc_english}}
     </div>
     <div *ngIf = 'language == "france"' style="padding-top:35px; text-indent: 15px; font-size:20px;">
       {{goodItem.desc_france}}
-    </div>    
-   </div>
-  
-  
-  <div class="col" style="align-items:center; justify-content: flex-start; width: 10%; padding-top:25px;">
+    </div> 
     <form>
       <select #OptionPrize style = "font-size:18px;">
        <option *ngFor = "let option of options" [value] = "[option.size, option.prize]">
          Size:{{option.size}}|${{option.prize}}
        </option>
       </select>
-    </form>
+    </form>       
+   </div>
   
-    <div class="bolder">Silver ring 925</div>
+  
+  <div class="col" style="align-items:center; justify-content: flex-start; width: 10%; padding-top:25px;">
+  
     <div class="bolder">Weight: {{goodItem.weight}}</div>
-    <input type = "button" value = "Add to card" (click) = "AddToCard(goodItem, OptionPrize.value)"/>
+    <input type = "button" class="button" value = "Add to card" (click) = "AddToCard(goodItem, OptionPrize.value)"/>
   </div>
-  </div>
-  
-  <div class="row">
-   <img src="../images/common/good_item.png" style="padding:15px;">
-   <img src="../images/common/good_item.png" style="padding:15px;">
   </div>
 </main>
 <footer-app></footer-app>

@@ -11,6 +11,7 @@ import { MainService } from '../services/mainservice.service';
 export class HeaderComponent implements OnInit {
 
   categoryList: any;
+  showSub:boolean;
   language = 'eng'
   showLang:boolean = false;
   dictionary: any = 
@@ -54,6 +55,12 @@ export class HeaderComponent implements OnInit {
   showLangList()
   {
    this.showLang = !this.showLang
+  }
+  showSubmenu()
+  {
+   if (this.showSub == undefined) this.showSub = false
+   else
+    this.showSub = !this.showSub
   }
 
 }

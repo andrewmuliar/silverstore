@@ -29,30 +29,20 @@
 	
 <!-- <app-goodItem [good] = 'good'></app-goodItem> -->
 	<div class="row">
-	  <a href ="#">
-	  <div class = "goodItem">
-		  <img src="../assets/images/common/goodItem.png">
-		  <div>Cross Rose</div>
-		  <div>179$</div>
-	  </div>
-	  </a>
-	  <a href ="#">
-	  <div class = "goodItem">
-		  <img src="../assets/images/common/goodItem.png">
-		  <div>Cross Rose</div>
-		  <div>179$</div>
-	  </div>
-	  </a>
-	  <a href ="#">
-	  <div class = "goodItem">
-		  <img src="../assets/images/common/goodItem.png">
-		  <div>Cross Rose</div>
-		  <div>179$</div>
-	  </div>
-	  </a>
+	 <ul style="display:flex; list-style:none;">
+	  <li *ngFor = "let good of lastGoods">
+	   <a [routerLink] = "'good/'+good.id">
+		<div class = "goodItem">
+		<img [src] = "'../upload/'+good.src">
+		<div>{{good.english}}</div>
+		<div>€{{good.prize}}</div>
+		</div>
+	   </a>		
+	  </li>
+	 </ul> 
 	 </div>
 	<div class="headers">
-	 <a routerLink = "/categories/1" style="text-decoration:underline;">
+	 <a routerLink = "/categories/2" style="text-decoration:underline;">
 	 {{dictionary[language].view}}
 	 </a>
 	</div>

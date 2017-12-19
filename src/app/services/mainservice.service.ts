@@ -78,6 +78,12 @@ getGoods(start, counter) //Параметри початку та кількос
  return this._http.get(fullUrl);
 }
 
+//Повертає останні три товари в базі
+getLastGoods()
+{
+  let fullUrl = this.url+"/functions.php?getLastGoods=1"
+  return this._http.get(fullUrl);
+}
 getGoodSizes(idGood)
 {
  let fullUrl = this.url+"/functions.php?sizeGood="+idGood;
@@ -100,6 +106,13 @@ goodsByCategory(category)
 getPromos()
 {
  let fullUrl = this.url+"/functions.php?promo_codes=1"
+ return this._http.get(fullUrl)
+}
+
+getImages(good)
+{
+ console.log("good ="+good)
+ let fullUrl = this.url+'/functions.php?goodImages='+good
  return this._http.get(fullUrl)
 }
 

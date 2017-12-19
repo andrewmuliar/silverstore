@@ -6,14 +6,14 @@
   padding-top:10px;
   overflow-x: hidden;
  }
- @media only screen and (min-width: 500px) {
+ @media  screen and (min-width: 500px) {
  .top_menu
  {
   display: flex;
   justify-content: space-around;
  }
 }
-@media only screen and (max-width: 500px) {
+@media  screen and (max-width: 500px) {
     .top_menu
     {
      display: flex;
@@ -36,30 +36,27 @@
 {
  width:100%;
 }
-.menu
+
+@media  screen and (max-width: 500px) {
+    .menu
+    {
+        display:flex;
+        flex-direction: column;
+    }
+}
+@media  screen and (min-width: 500px) {    
+    .menu
+    {
+    display: flex; 
+    }
+}
+.menu div
 {
- display: flex;
- justify-content: flex-end;
-}
-@media only screen and (max-width: 500px) {
-    .menu div
-    {
-        padding: 0 15px;
-        font-size:16px;
-        text-transform: uppercase;
-        text-decoration: none;
-        color:black;
-    }
-}
-@media only screen and (min-width: 500px) {    
-    .menu div
-    {
-    padding: 0 15px;
-    font-size:24px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color:black;  
-    }
+ padding: 0 15px;
+ font-size:24px;
+ text-transform: uppercase;
+ text-decoration: none;
+ color:black; 
 }
 .menu div a
 {
@@ -86,19 +83,19 @@
 {
  align-self:center;
 }
-@media only screen and (min-width: 500px) {  
+@media  screen and (min-width: 500px) {  
  .shop_image
  {
   height:45px;
  }
 }
-@media only screen and (max-width: 500px) {  
+@media  screen and (max-width: 500px) {  
  .shop_image
  {
   height:29px;
  }
 } 
-@media only screen and (min-width: 500px) {  
+@media  screen and (min-width: 500px) {  
  .search
  {
  font-size:22px;
@@ -106,7 +103,7 @@
  width:100%;
  }
 }
-@media only screen and (max-width: 500px) {
+@media  screen and (max-width: 500px) {
  .search
  {
   font-size:16px;
@@ -115,7 +112,7 @@
  }
 }   
 
-@media only screen and (max-width: 500px) {
+@media  screen and (max-width: 500px) {
     .category_list
     {
     color:white;
@@ -124,7 +121,7 @@
     list-style: none;
     }
 }
-@media only screen and (min-width: 500px) {
+@media  screen and (min-width: 500px) {
     
  .category_list
  {
@@ -146,6 +143,20 @@
 .trans_list li
 {
  padding:5px;
+}
+@media screen and (min-width:500px)
+{
+ .category_list li > div
+ {
+  font-size:22px;
+ }
+}
+@media screen and (max-width:500px)
+{
+ .category_list li > div
+ {
+  font-size:14px;
+ }
 }
 .category_list li:hover
 {

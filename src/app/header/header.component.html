@@ -4,7 +4,8 @@
       <a href="#"><img src = "../assets/images/common/whitelogo.png" style = "height: 75px;" /></a>
     </div>
     <div class = "right_side">
-      <div class="menu">
+       <div (click) = "showSubmenu()" class = "submenu"><img src ="../../assets/images/common/burger.png"></div>
+       <div class="menu" *ngIf = "!showSub">
        <div><a routerLink = "/">{{dictionary[language].home}}</a></div>
        <div><a routerLink = "/shop">{{dictionary[language].shop}}</a></div>
        <div><a routerLink = "/about">{{dictionary[language].notice}}</a></div>

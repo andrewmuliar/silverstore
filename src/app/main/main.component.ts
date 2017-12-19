@@ -24,10 +24,19 @@ export class MainComponent implements OnInit {
    }
   }
   language = ''
+  
+  lastGoods:any
 
   constructor(private service:MainService) { }
 
   ngOnInit() {
-    this.language = this.service.translate()    
+    this.language = this.service.translate()   
+    this.service.getLastGoods().subscribe(
+      data => 
+      {
+       this.lastGoods = JSON.parse(data.text())
+       console.log(data.text())
+      }
+    ) 
   }
 }

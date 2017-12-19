@@ -32,6 +32,14 @@
  font-weight: bold;
  padding:25px 0;
 }
+.headers a
+{
+ transition: 0.8s all;  
+}
+.headers a:hover
+{
+ transform: scale(1.1)
+}
 
 .underline
 {
@@ -46,6 +54,10 @@
  text-decoration:none;
  padding:5px;
  transition: 1s all; 
+}
+.goodItem img
+{
+ height: 375px;
 }
 .goodItem:hover
 {
